@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harry Feng <2307555175@qq.com> (http://hizhangu.com)",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "compression": "^1.5.0",
+    "express": "^4.13.0",
+    "moment": "^2.10.3",
+    "request": "^2.58.0",
+    "tracer": "^0.7.4",
+    "wechat-enterprise": "^0.1.0"
+  }
+}
