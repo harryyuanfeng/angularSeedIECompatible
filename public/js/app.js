@@ -13,7 +13,10 @@ var app = angular.module('zhanguApp', ['ui.router', 'ui.load', 'zhanguApp.filter
     ['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
         function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
             app.controller = $controllerProvider.register;
-
+            app.directive = $compileProvider.directive;
+            app.filter = $filterProvider.register;
+            app.factory = $provide.factory;
+            app.service = $provide.service;
             //整个网站首先从这里开始，这句话的意思是：我看看url是什么，如果url跟下面的都不对，我就加载dashboard－v1这一个页面
             $urlRouterProvider
                 .otherwise('/app/home');
