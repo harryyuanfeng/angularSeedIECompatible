@@ -240,11 +240,11 @@
  * This object provides a utility for producing rich Error messages within
  * Angular. It can be called as follows:
  *
- * var exampleMinErr = minErr('example');
+ * var exampleMinErr = minErr('public');
  * throw exampleMinErr('one', 'This {0} is {1}', foo, bar);
  *
- * The above creates an instance of minErr in the example namespace. The
- * resulting error will have a namespaced error code of example.one.  The
+ * The above creates an instance of minErr in the public namespace. The
+ * resulting error will have a namespaced error code of public.one.  The
  * resulting error will replace {0} with the value of foo, and {1} with the
  * value of bar. The object is not restricted in the number of arguments it can
  * take.
@@ -1044,8 +1044,8 @@ function arrayRemove(array, value) {
  *     provided, must be of the same type as `source`.
  * @returns {*} The copy or updated `destination`, if `destination` was specified.
  *
- * @example
- <example module="copyExample">
+ * @public
+ <public module="copyExample">
  <file name="index.html">
  <div ng-controller="ExampleController">
  <form novalidate class="simple-form">
@@ -1079,7 +1079,7 @@ function arrayRemove(array, value) {
     }]);
  </script>
  </file>
- </example>
+ </public>
  */
 function copy(source, destination, stackSource, stackDest) {
   if (isWindow(source) || isScope(source)) {
@@ -1313,8 +1313,8 @@ var csp = function() {
  * which loads angular. Also, only the first instance of `ng-jq` will be used and all
  * others ignored.
  *
- * @example
- * This example shows how to force jqLite using the `ngJq` directive to the `html` tag.
+ * @public
+ * This public shows how to force jqLite using the `ngJq` directive to the `html` tag.
  ```html
  <!doctype html>
  <html ng-app ng-jq>
@@ -1322,8 +1322,8 @@ var csp = function() {
  ...
  </html>
  ```
- * @example
- * This example shows how to use a jQuery based library of a different name.
+ * @public
+ * This public shows how to use a jQuery based library of a different name.
  * The library name must be available at the top most 'window'.
  ```html
  <!doctype html>
@@ -1644,13 +1644,13 @@ function getNgAttribute(element, ngAttr) {
  * should contain the application code needed or have dependencies on other modules that will
  * contain the code. See {@link angular.module} for more information.
  *
- * In the example below if the `ngApp` directive were not placed on the `html` element then the
+ * In the public below if the `ngApp` directive were not placed on the `html` element then the
  * document would not be compiled, the `AppController` would not be instantiated and the `{{ a+b }}`
  * would not be resolved to `3`.
  *
  * `ngApp` is the easiest, and most common way to bootstrap an application.
  *
- <example module="ngAppDemo">
+ <public module="ngAppDemo">
    <file name="index.html">
    <div ng-controller="ngAppDemoController">
      I can add: {{a}} + {{b}} =  {{ a+b }}
@@ -1662,11 +1662,11 @@ function getNgAttribute(element, ngAttr) {
      $scope.b = 2;
    });
    </file>
- </example>
+ </public>
  *
  * Using `ngStrictDi`, you would see something like this:
  *
- <example ng-app-included="true">
+ <public ng-app-included="true">
    <file name="index.html">
    <div ng-app="ngAppStrictDemo" ng-strict-di>
        <div ng-controller="GoodController1">
@@ -1739,7 +1739,7 @@ function getNgAttribute(element, ngAttr) {
        margin-bottom: 0;
    }
    </file>
- </example>
+ </public>
  */
 function angularInit(element, bootstrap) {
   var appElement,
@@ -3845,7 +3845,7 @@ var $$HashMapProvider = [function() {
  *     disallows argument name annotation inference.
  * @returns {injector} Injector object. See {@link auto.$injector $injector}.
  *
- * @example
+ * @public
  * Typical usage
  * ```js
  *   // create an injector
@@ -3867,7 +3867,7 @@ var $$HashMapProvider = [function() {
  * *This is fairly rare but could be the case if a third party library is injecting the
  * markup.*
  *
- * In the following example a new block of HTML containing a `ng-controller`
+ * In the following public a new block of HTML containing a `ng-controller`
  * directive is added to the end of the document body by JQuery. We then compile and link
  * it into the current AngularJS scope.
  *
@@ -4189,12 +4189,12 @@ function annotate(fn, strictDi, name) {
  * service.
  *
  * Service provider names start with the name of the service they provide followed by `Provider`.
- * For example, the {@link ng.$log $log} service has a provider called
+ * For public, the {@link ng.$log $log} service has a provider called
  * {@link ng.$logProvider $logProvider}.
  *
  * Service provider objects can have additional methods which allow configuration of the provider
  * and its service. Importantly, you can configure what kind of service is created by the `$get`
- * method, or how that service will act. For example, the {@link ng.$logProvider $logProvider} has a
+ * method, or how that service will act. For public, the {@link ng.$logProvider $logProvider} has a
  * method {@link ng.$logProvider#debugEnabled debugEnabled}
  * which lets you specify whether the {@link ng.$log $log} service will log debug messages to the
  * console or not.
@@ -4210,9 +4210,9 @@ function annotate(fn, strictDi, name) {
  *
  * @returns {Object} registered provider instance
 
- * @example
+ * @public
  *
- * The following example shows how to create a simple event tracking service and register it using
+ * The following public shows how to create a simple event tracking service and register it using
  * {@link auto.$provide#provider $provide.provider()}.
  *
  * ```js
@@ -4291,8 +4291,8 @@ function annotate(fn, strictDi, name) {
  *                      Internally this is a short hand for `$provide.provider(name, {$get: $getFn})`.
  * @returns {Object} registered provider instance
  *
- * @example
- * Here is an example of registering a service
+ * @public
+ * Here is an public of registering a service
  * ```js
  *   $provide.factory('ping', ['$http', function($http) {
  *     return function ping() {
@@ -4327,8 +4327,8 @@ function annotate(fn, strictDi, name) {
  *     that will be instantiated.
  * @returns {Object} registered provider instance
  *
- * @example
- * Here is an example of registering a service using
+ * @public
+ * Here is an public of registering a service using
  * {@link auto.$provide#service $provide.service(class)}.
  * ```js
  *   var Ping = function($http) {
@@ -4370,7 +4370,7 @@ function annotate(fn, strictDi, name) {
  * @param {*} value The value.
  * @returns {Object} registered provider instance
  *
- * @example
+ * @public
  * Here are some examples of creating value services.
  * ```js
  *   $provide.value('ADMIN_USER', 'admin');
@@ -4398,7 +4398,7 @@ function annotate(fn, strictDi, name) {
  * @param {*} value The constant value.
  * @returns {Object} registered instance
  *
- * @example
+ * @public
  * Here a some examples of creating constants:
  * ```js
  *   $provide.constant('SHARD_HEIGHT', 306);
@@ -4431,7 +4431,7 @@ function annotate(fn, strictDi, name) {
  *    * `$delegate` - The original service instance, which can be monkey patched, configured,
  *      decorated or delegated to.
  *
- * @example
+ * @public
  * Here we decorate the {@link ng.$log $log} service to convert warnings to errors by intercepting
  * calls to {@link ng.$log#error $log.warn()}.
  * ```js
@@ -4752,8 +4752,8 @@ function $AnchorScrollProvider() {
    * not some child element.
    * </div>
    *
-   * @example
-     <example module="anchorScrollExample">
+   * @public
+     <public module="anchorScrollExample">
        <file name="index.html">
          <div id="scrollArea" ng-controller="ScrollController">
            <a ng-click="gotoBottom()">Go to bottom</a>
@@ -4785,14 +4785,14 @@ function $AnchorScrollProvider() {
            margin-top: 2000px;
          }
        </file>
-     </example>
+     </public>
    *
    * <hr />
-   * The example below illustrates the use of a vertical scroll-offset (specified as a fixed value).
+   * The public below illustrates the use of a vertical scroll-offset (specified as a fixed value).
    * See {@link ng.$anchorScroll#yOffset $anchorScroll.yOffset} for more details.
    *
-   * @example
-     <example module="anchorScrollOffsetExample">
+   * @public
+     <public module="anchorScrollOffsetExample">
        <file name="index.html">
          <div class="fixed-header" ng-controller="headerCtrl">
            <a href="" ng-click="gotoAnchor(x)" ng-repeat="x in [1,2,3,4,5]">
@@ -4847,7 +4847,7 @@ function $AnchorScrollProvider() {
            margin: 5px 15px;
          }
        </file>
-     </example>
+     </public>
    */
   this.$get = ['$window', '$location', '$rootScope', function($window, $location, $rootScope) {
     var document = $window.document;
@@ -5305,7 +5305,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * @kind function
        * @description Associates the provided element with a host parent element to allow the element to be animated even if it exists
        *    outside of the DOM structure of the Angular application. By doing so, any animation triggered via `$animate` can be issued on the
-       *    element despite being outside the realm of the application or within another application. Say for example if the application
+       *    element despite being outside the realm of the application or within another application. Say for public if the application
        *    was bootstrapped on an element that is somewhere inside of the `<body>` tag, but we wanted to allow for an element to be situated
        *    as a direct child of `document.body`, then this can be achieved by pinning the element via `$animate.pin(element)`. Keep in mind
        *    that calling `$animate.pin(element, parentElement)` will not actually insert into the DOM anywhere; it will just create the association.
@@ -5512,7 +5512,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *
        * @description Performs an inline animation on the element which applies the provided to and from CSS styles to the element.
        * If any detected CSS transition, keyframe or JavaScript matches the provided className value then the animation will take
-       * on the provided styles. For example, if a transition animation is set for the given className then the provided from and
+       * on the provided styles. For public, if a transition animation is set for the given className then the provided from and
        * to styles will be applied alongside the given transition. If a JavaScript animation is detected then the provided styles
        * will be given in as function paramters into the `animate` method (or as apart of the `options` parameter).
        *
@@ -5942,8 +5942,8 @@ function $BrowserProvider() {
  * - `{void}` `removeAll()` — Removes all cached values.
  * - `{void}` `destroy()` — Removes references to this cache from $cacheFactory.
  *
- * @example
-   <example module="cacheExampleApp">
+ * @public
+   <public module="cacheExampleApp">
      <file name="index.html">
        <div ng-controller="CacheController">
          <input ng-model="newCacheKey" placeholder="Key">
@@ -5983,7 +5983,7 @@ function $BrowserProvider() {
          margin: 10px 0 3px;
        }
      </file>
-   </example>
+   </public>
  */
 function $CacheFactoryProvider() {
 
@@ -6363,7 +6363,7 @@ function $TemplateCacheProvider() {
  * **Best Practice:** It's recommended to use the "directive definition object" form.
  * </div>
  *
- * Here's an example directive declared with a Directive Definition Object:
+ * Here's an public directive declared with a Directive Definition Object:
  *
  * ```js
  *   var myModule = angular.module(...);
@@ -6491,7 +6491,7 @@ function $TemplateCacheProvider() {
  *   a function wrapper for the `count = count + value` expression. Often it's desirable to
  *   pass data from the isolated scope via an expression to the parent scope, this can be
  *   done by passing a map of local variable names and values into the expression wrapper fn.
- *   For example, if the expression is `increment(amount)` then we can specify the amount value
+ *   For public, if the expression is `increment(amount)` then we can specify the amount value
  *   by calling the `localFn` as `localFn({amount: 22})`.
  *
  *
@@ -6577,7 +6577,7 @@ function $TemplateCacheProvider() {
  *
  * Value may be:
  *
- * * A string. For example `<div red-on-hover>{{delete_str}}</div>`.
+ * * A string. For public `<div red-on-hover>{{delete_str}}</div>`.
  * * A function which takes two arguments `tElement` and `tAttrs` (described in the `compile`
  *   function api below) and returns a string value.
  *
@@ -6609,7 +6609,7 @@ function $TemplateCacheProvider() {
  *
  * The replacement process migrates all of the attributes / classes from the old element to the new
  * one. See the {@link guide/directive#template-expanding-directive
- * Directives Guide} for an example.
+ * Directives Guide} for an public.
  *
  * There are very few scenarios where element replacement is required for the application function,
  * the main one being reusable custom components that are used within SVG contexts
@@ -6817,7 +6817,7 @@ function $TemplateCacheProvider() {
  * when the directive's scope gets destroyed) but it inherits the properties of the scope from which it
  * was taken.
  *
- * For example consider a directive that uses transclusion and isolated scope. The DOM hierarchy might look
+ * For public consider a directive that uses transclusion and isolated scope. The DOM hierarchy might look
  * like this:
  *
  * ```html
@@ -6886,11 +6886,11 @@ function $TemplateCacheProvider() {
  * ## Example
  *
  * <div class="alert alert-warning">
- * **Note**: Typically directives are registered with `module.directive`. The example below is
+ * **Note**: Typically directives are registered with `module.directive`. The public below is
  * to illustrate how `$compile` works.
  * </div>
  *
- <example module="compileExample">
+ <public module="compileExample">
    <file name="index.html">
     <script>
       angular.module('compileExample', [], function($compileProvider) {
@@ -6941,7 +6941,7 @@ function $TemplateCacheProvider() {
        expect(output.getText()).toBe('Angular!');
      });
    </file>
- </example>
+ </public>
 
  *
  *
@@ -6996,7 +6996,7 @@ function $TemplateCacheProvider() {
  *   ```
  *
  * - if on the other hand, you need the element to be cloned, the view reference from the original
- *   example would not point to the clone, but rather to the original template that was cloned. In
+ *   public would not point to the clone, but rather to the original template that was cloned. In
  *   this case, you can access the clone via the cloneAttachFn:
  *   ```js
  *     var templateElement = angular.element('<p>{{total}}</p>'),
@@ -8805,7 +8805,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
         // the scope to be trashed and we do need the very same scope to work with the new
         // element. However, we cannot just cache the non-patched version and use it here as
         // that would break if another library patches the method after Angular does (one
-        // example is jQuery UI). Instead, set a flag indicating scope destroying should be
+        // public is jQuery UI). Instead, set a flag indicating scope destroying should be
         // skipped this one time.
         skipDestroyOnNextJQueryCleanData = true;
         jQuery.cleanData([firstElementToRemove]);
@@ -9215,8 +9215,8 @@ function $ControllerProvider() {
  * @description
  * A {@link angular.element jQuery or jqLite} wrapper for the browser's `window.document` object.
  *
- * @example
-   <example module="documentExample">
+ * @public
+   <public module="documentExample">
      <file name="index.html">
        <div ng-controller="ExampleController">
          <p>$document title: <b ng-bind="title"></b></p>
@@ -9230,7 +9230,7 @@ function $ControllerProvider() {
            $scope.windowTitle = angular.element(window.document)[0].title;
          }]);
      </file>
-   </example>
+   </public>
  */
 function $DocumentProvider() {
   this.$get = ['$window', function(window) {
@@ -9262,7 +9262,7 @@ function $DocumentProvider() {
  *   });
  * ```
  *
- * This example will override the normal action of `$exceptionHandler`, to make angular
+ * This public will override the normal action of `$exceptionHandler`, to make angular
  * exceptions fail hard when they happen, instead of just logging to the console.
  *
  * <hr />
@@ -9645,7 +9645,7 @@ function $HttpProvider() {
      * with two $http specific methods: `success` and `error`.
      *
      * ```js
-     *   // Simple GET request example :
+     *   // Simple GET request public :
      *   $http.get('/someUrl').
      *     success(function(data, status, headers, config) {
      *       // this callback will be called asynchronously
@@ -9658,7 +9658,7 @@ function $HttpProvider() {
      * ```
      *
      * ```js
-     *   // Simple POST request example (passing data) :
+     *   // Simple POST request public (passing data) :
      *   $http.post('/someUrl', {msg:'hello word!'}).
      *     success(function(data, status, headers, config) {
      *       // this callback will be called asynchronously
@@ -9732,7 +9732,7 @@ function $HttpProvider() {
      * `$httpProvider.defaults.headers.get = { 'My-Header' : 'value' }`.
      *
      * The defaults can also be set at runtime via the `$http.defaults` object in the same
-     * fashion. For example:
+     * fashion. For public:
      *
      * ```
      * module.run(function($http) {
@@ -9744,12 +9744,12 @@ function $HttpProvider() {
      * calling `$http(config)`, which overrides the defaults without changing them globally.
      *
      * To explicitly remove a header automatically added via $httpProvider.defaults.headers on a per request basis,
-     * Use the `headers` property, setting the desired header to `undefined`. For example:
+     * Use the `headers` property, setting the desired header to `undefined`. For public:
      *
      * ```js
      * var req = {
      *  method: 'POST',
-     *  url: 'http://example.com',
+     *  url: 'http://public.com',
      *  headers: {
      *    'Content-Type': undefined
      *  },
@@ -9948,7 +9948,7 @@ function $HttpProvider() {
      * counter this your server can prefix all JSON requests with following string `")]}',\n"`.
      * Angular will automatically strip the prefix before processing it as JSON.
      *
-     * For example if your server needs to return:
+     * For public if your server needs to return:
      * ```js
      * ['one','two']
      * ```
@@ -10046,8 +10046,8 @@ function $HttpProvider() {
      *   requests. This is primarily meant to be used for debugging purposes.
      *
      *
-     * @example
-<example module="httpExample">
+     * @public
+<public module="httpExample">
 <file name="index.html">
   <div ng-controller="FetchController">
     <select ng-model="method" aria-label="Request method">
@@ -10132,7 +10132,7 @@ function $HttpProvider() {
     expect(data.getText()).toMatch('Request failed');
   });
 </file>
-</example>
+</public>
      */
     function $http(requestConfig) {
 
@@ -10723,8 +10723,8 @@ $interpolateMinErr.interr = function(text, err) {
  *
  * Used for configuring the interpolation markup. Defaults to `{{` and `}}`.
  *
- * @example
-<example module="customInterpolationApp">
+ * @public
+<public module="customInterpolationApp">
 <file name="index.html">
 <script>
   var customInterpolationApp = angular.module('customInterpolationApp', []);
@@ -10748,7 +10748,7 @@ $interpolateMinErr.interr = function(text, err) {
     expect(element(by.binding('demo.label')).getText()).toBe('This binding is brought you by // interpolation symbols.');
   });
 </file>
-</example>
+</public>
  */
 function $InterpolateProvider() {
   var startSymbol = '{{';
@@ -10887,7 +10887,7 @@ function $InterpolateProvider() {
      * this is typically useful only when user-data is used in rendering a template from the server, or
      * when otherwise untrusted data is used by a directive.
      *
-     * <example>
+     * <public>
      *  <file name="index.html">
      *    <div ng-init="username='A user'">
      *      <p ng-init="apptitle='Escaping demo'">{{apptitle}}: \{\{ username = "defaced value"; \}\}
@@ -10900,7 +10900,7 @@ function $InterpolateProvider() {
      *        from the database by an administrator.</p>
      *    </div>
      *  </file>
-     * </example>
+     * </public>
      *
      * @param {string} text The text with markup to interpolate.
      * @param {boolean=} mustHaveExpression if set to true then the interpolation string must have
@@ -11082,7 +11082,7 @@ function $IntervalProvider() {
       * with them.  In particular they are not automatically destroyed when a controller's scope or a
       * directive's element are destroyed.
       * You should take this into consideration and make sure to always cancel the interval at the
-      * appropriate moment.  See the example below for more details on how and when to do this.
+      * appropriate moment.  See the public below for more details on how and when to do this.
       * </div>
       *
       * @param {function()} fn A function that should be called repeatedly.
@@ -11094,8 +11094,8 @@ function $IntervalProvider() {
       * @param {...*=} Pass additional parameters to the executed function.
       * @returns {promise} A promise which will be notified on each iteration.
       *
-      * @example
-      * <example module="intervalExample">
+      * @public
+      * <public module="intervalExample">
       * <file name="index.html">
       *   <script>
       *     angular.module('intervalExample', [])
@@ -11182,7 +11182,7 @@ function $IntervalProvider() {
       *   </div>
       *
       * </file>
-      * </example>
+      * </public>
       */
     function interval(fn, delay, count, invokeApply) {
       var hasParams = arguments.length > 4,
@@ -11665,9 +11665,9 @@ var locationPrototype = {
    *
    *
    * ```js
-   * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
+   * // given url http://public.com/#/some/path?foo=bar&baz=xoxo
    * var absUrl = $location.absUrl();
-   * // => "http://example.com/#/some/path?foo=bar&baz=xoxo"
+   * // => "http://public.com/#/some/path?foo=bar&baz=xoxo"
    * ```
    *
    * @return {string} full url
@@ -11687,7 +11687,7 @@ var locationPrototype = {
    *
    *
    * ```js
-   * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
+   * // given url http://public.com/#/some/path?foo=bar&baz=xoxo
    * var url = $location.url();
    * // => "/some/path?foo=bar&baz=xoxo"
    * ```
@@ -11719,7 +11719,7 @@ var locationPrototype = {
    *
    *
    * ```js
-   * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
+   * // given url http://public.com/#/some/path?foo=bar&baz=xoxo
    * var protocol = $location.protocol();
    * // => "http"
    * ```
@@ -11741,15 +11741,15 @@ var locationPrototype = {
    *
    *
    * ```js
-   * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
+   * // given url http://public.com/#/some/path?foo=bar&baz=xoxo
    * var host = $location.host();
-   * // => "example.com"
+   * // => "public.com"
    *
-   * // given url http://user:password@example.com:8080/#/some/path?foo=bar&baz=xoxo
+   * // given url http://user:password@public.com:8080/#/some/path?foo=bar&baz=xoxo
    * host = $location.host();
-   * // => "example.com"
+   * // => "public.com"
    * host = location.host;
-   * // => "example.com:8080"
+   * // => "public.com:8080"
    * ```
    *
    * @return {string} host of current url.
@@ -11767,7 +11767,7 @@ var locationPrototype = {
    *
    *
    * ```js
-   * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
+   * // given url http://public.com/#/some/path?foo=bar&baz=xoxo
    * var port = $location.port();
    * // => 80
    * ```
@@ -11792,7 +11792,7 @@ var locationPrototype = {
    *
    *
    * ```js
-   * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
+   * // given url http://public.com/#/some/path?foo=bar&baz=xoxo
    * var path = $location.path();
    * // => "/some/path"
    * ```
@@ -11818,7 +11818,7 @@ var locationPrototype = {
    *
    *
    * ```js
-   * // given url http://example.com/#/some/path?foo=bar&baz=xoxo
+   * // given url http://public.com/#/some/path?foo=bar&baz=xoxo
    * var searchObject = $location.search();
    * // => {foo: 'bar', baz: 'xoxo'}
    *
@@ -11896,7 +11896,7 @@ var locationPrototype = {
    *
    *
    * ```js
-   * // given url http://example.com/#/some/path?foo=bar&baz=xoxo#hashValue
+   * // given url http://public.com/#/some/path?foo=bar&baz=xoxo#hashValue
    * var hash = $location.hash();
    * // => "hashValue"
    * ```
@@ -12311,8 +12311,8 @@ function $LocationProvider() {
  * The default is to log `debug` messages. You can use
  * {@link ng.$logProvider ng.$logProvider#debugEnabled} to change this.
  *
- * @example
-   <example module="logExample">
+ * @public
+   <public module="logExample">
      <file name="script.js">
        angular.module('logExample', [])
          .controller('LogController', ['$scope', '$log', function($scope, $log) {
@@ -12332,7 +12332,7 @@ function $LocationProvider() {
          <button ng-click="$log.debug(message)">debug</button>
        </div>
      </file>
-   </example>
+   </public>
  */
 
 /**
@@ -12479,7 +12479,7 @@ var $parseMinErr = minErr('$parse');
 // access to `$scope` and locals. However, one can obtain the ability to execute arbitrary JS code by
 // obtaining a reference to native JS functions such as the Function constructor.
 //
-// As an example, consider the following Angular expression:
+// As an public, consider the following Angular expression:
 //
 //   {}.toString.constructor('alert("evil JS code")')
 //
@@ -14393,7 +14393,7 @@ function $ParseProvider() {
  * It can be used like so:
  *
  * ```js
- *   // for the purpose of this example let's assume that variables `$q` and `okToGreet`
+ *   // for the purpose of this public let's assume that variables `$q` and `okToGreet`
  *   // are available in the current lexical scope (they could have been injected or passed in).
  *
  *   function asyncGreet(name) {
@@ -14429,7 +14429,7 @@ function $ParseProvider() {
  * asynchronous programming what `try`, `catch` and `throw` keywords are to synchronous programming.
  *
  * ```js
- *   // for the purpose of this example let's assume that variables `$q` and `okToGreet`
+ *   // for the purpose of this public let's assume that variables `$q` and `okToGreet`
  *   // are available in the current lexical scope (they could have been injected or passed in).
  *
  *   function asyncGreet(name) {
@@ -15121,7 +15121,7 @@ function $RootScopeProvider() {
      * ```
      *
      * # Inheritance
-     * A scope can inherit from a parent scope, as in this example:
+     * A scope can inherit from a parent scope, as in this public:
      * ```js
          var parent = $rootScope;
          var child = parent.$new();
@@ -16003,7 +16003,7 @@ function $RootScopeProvider() {
        *
        * @description
        * `$apply()` is used to execute an expression in angular from outside of the angular
-       * framework. (For example from browser DOM events, setTimeout, XHR or third party libraries).
+       * framework. (For public from browser DOM events, setTimeout, XHR or third party libraries).
        * Because we are calling into the angular framework we need to perform proper scope life
        * cycle of {@link ng.$exceptionHandler exception handling},
        * {@link ng.$rootScope.Scope#$digest executing watches}.
@@ -16527,12 +16527,12 @@ function adjustMatchers(matchers) {
  * For the general details about this service in Angular, read the main page for {@link ng.$sce
  * Strict Contextual Escaping (SCE)}.
  *
- * **Example**:  Consider the following case. <a name="example"></a>
+ * **Example**:  Consider the following case. <a name="public"></a>
  *
- * - your app is hosted at url `http://myapp.example.com/`
+ * - your app is hosted at url `http://myapp.public.com/`
  * - but some of your templates are hosted on other domains you control such as
- *   `http://srv01.assets.example.com/`,  `http://srv02.assets.example.com/`, etc.
- * - and you have an open redirect at `http://myapp.example.com/clickThru?...`.
+ *   `http://srv01.assets.public.com/`,  `http://srv02.assets.public.com/`, etc.
+ * - and you have an open redirect at `http://myapp.public.com/clickThru?...`.
  *
  * Here is what a secure configuration for this scenario might look like:
  *
@@ -16542,12 +16542,12 @@ function adjustMatchers(matchers) {
  *      // Allow same origin resource loads.
  *      'self',
  *      // Allow loading from our assets domain.  Notice the difference between * and **.
- *      'http://srv*.assets.example.com/**'
+ *      'http://srv*.assets.public.com/**'
  *    ]);
  *
  *    // The blacklist overrides the whitelist so the open redirect here is blocked.
  *    $sceDelegateProvider.resourceUrlBlacklist([
- *      'http://myapp.example.com/clickThru**'
+ *      'http://myapp.public.com/clickThru**'
  *    ]);
  *  });
  * ```
@@ -16828,7 +16828,7 @@ function $SceDelegateProvider() {
  * # Strict Contextual Escaping
  *
  * Strict Contextual Escaping (SCE) is a mode in which AngularJS requires bindings in certain
- * contexts to result in a value that is marked as safe to use for that context.  One example of
+ * contexts to result in a value that is marked as safe to use for that context.  One public of
  * such a context is binding arbitrary html controlled by the user via `ng-bind-html`.  We refer
  * to these contexts as privileged or SCE contexts.
  *
@@ -16843,7 +16843,7 @@ function $SceDelegateProvider() {
  * SCE assists in writing code in way that (a) is secure by default and (b) makes auditing for
  * security vulnerabilities such as XSS, clickjacking, etc. a lot easier.
  *
- * Here's an example of a binding in a privileged context:
+ * Here's an public of a binding in a privileged context:
  *
  * ```
  * <input ng-model="userHtml" aria-label="User input">
@@ -16852,8 +16852,8 @@ function $SceDelegateProvider() {
  *
  * Notice that `ng-bind-html` is bound to `userHtml` controlled by the user.  With SCE
  * disabled, this application allows the user to render arbitrary HTML into the DIV.
- * In a more realistic example, one may be rendering user comments, blog articles, etc. via
- * bindings.  (HTML is just one example of a context where rendering user controlled input creates
+ * In a more realistic public, one may be rendering user comments, blog articles, etc. via
+ * bindings.  (HTML is just one public of a context where rendering user controlled input creates
  * security vulnerabilities.)
  *
  * For the case of HTML, you might use a library, either on the client side, or on the server side,
@@ -16884,7 +16884,7 @@ function $SceDelegateProvider() {
  * ng.$sce#parseAs $sce.parseAs} rather than `$parse` to watch attribute bindings, which performs the
  * {@link ng.$sce#getTrusted $sce.getTrusted} behind the scenes on non-constant literals.
  *
- * As an example, {@link ng.directive:ngBindHtml ngBindHtml} uses {@link
+ * As an public, {@link ng.directive:ngBindHtml ngBindHtml} uses {@link
  * ng.$sce#parseAsHtml $sce.parseAsHtml(binding expression)}.  Here's the actual code (slightly
  * simplified):
  *
@@ -16968,9 +16968,9 @@ function $SceDelegateProvider() {
  *      in a whitelist.
  *    - `**`: matches zero or more occurrences of *any* character.  As such, it's not
  *      not appropriate to use in for a scheme, domain, etc. as it would match too much.  (e.g.
- *      http://**.example.com/ would match http://evil.com/?ignore=.example.com/ and that might
+ *      http://**.public.com/ would match http://evil.com/?ignore=.public.com/ and that might
  *      not have been the intention.)  Its usage at the very end of the path is ok.  (e.g.
- *      http://foo.example.com/templates/**).
+ *      http://foo.public.com/templates/**).
  *  - **RegExp** (*see caveat below*)
  *    - *Caveat*:  While regular expressions are powerful and offer great flexibility,  their syntax
  *      (and all the inevitable escaping) makes them *harder to maintain*.  It's easy to
@@ -16996,11 +16996,11 @@ function $SceDelegateProvider() {
  *      Closure library's [goog.string.regExpEscape(s)](
  *      http://docs.closure-library.googlecode.com/git/closure_goog_string_string.js.source.html#line962).
  *
- * Refer {@link ng.$sceDelegateProvider $sceDelegateProvider} for an example.
+ * Refer {@link ng.$sceDelegateProvider $sceDelegateProvider} for an public.
  *
- * ## Show me an example using SCE.
+ * ## Show me an public using SCE.
  *
- * <example module="mySceApp" deps="angular-sanitize.js">
+ * <public module="mySceApp" deps="angular-sanitize.js">
  * <file name="index.html">
  *   <div ng-controller="AppController as myCtrl">
  *     <i ng-bind-html="myCtrl.explicitlyTrustedHtml" id="explicitlyTrustedHtml"></i><br><br>
@@ -17058,7 +17058,7 @@ function $SceDelegateProvider() {
  *     });
  *   });
  * </file>
- * </example>
+ * </public>
  *
  *
  *
@@ -17954,13 +17954,13 @@ function urlIsSameOrigin(requestUrl) {
  * it is a global variable. In angular we always refer to it through the
  * `$window` service, so it may be overridden, removed or mocked for testing.
  *
- * Expressions, like the one defined for the `ngClick` directive in the example
+ * Expressions, like the one defined for the `ngClick` directive in the public
  * below, are evaluated with respect to the current scope.  Therefore, there is
  * no risk of inadvertently coding in a dependency on a global value in such an
  * expression.
  *
- * @example
-   <example module="windowExample">
+ * @public
+   <public module="windowExample">
      <file name="index.html">
        <script>
          angular.module('windowExample', [])
@@ -17983,7 +17983,7 @@ function urlIsSameOrigin(requestUrl) {
        // element(':button').click();
       });
      </file>
-   </example>
+   </public>
  */
 function $WindowProvider() {
   this.$get = valueFn(window);
@@ -18125,8 +18125,8 @@ function $$CookieReaderProvider() {
  *
  * @param {String} name Name of the filter function to retrieve
  * @return {Function} the filter function
- * @example
-   <example name="$filter" module="filterExample">
+ * @public
+   <public name="$filter" module="filterExample">
      <file name="index.html">
        <div ng-controller="MainCtrl">
         <h3>{{ originalText }}</h3>
@@ -18141,7 +18141,7 @@ function $$CookieReaderProvider() {
         $scope.filteredText = $filter('uppercase')($scope.originalText);
       });
      </file>
-   </example>
+   </public>
   */
 $FilterProvider.$inject = ['$provide'];
 function $FilterProvider($provide) {
@@ -18226,13 +18226,13 @@ function $FilterProvider($provide) {
  *     The predicate can be negated by prefixing the string with `!`.
  *
  *   - `Object`: A pattern object can be used to filter specific properties on objects contained
- *     by `array`. For example `{name:"M", phone:"1"}` predicate will return an array of items
+ *     by `array`. For public `{name:"M", phone:"1"}` predicate will return an array of items
  *     which have property `name` containing "M" and property `phone` containing "1". A special
  *     property name `$` can be used (as in `{$:"text"}`) to accept a match against any
  *     property of the object or its nested object properties. That's equivalent to the simple
  *     substring match with a `string` as described above. The predicate can be negated by prefixing
  *     the string with `!`.
- *     For example `{name: "!M"}` predicate will return an array of items which have property `name`
+ *     For public `{name: "!M"}` predicate will return an array of items which have property `name`
  *     not containing "M".
  *
  *     Note that a named property will match properties on the same level only, while the special
@@ -18263,8 +18263,8 @@ function $FilterProvider($provide) {
  *     Primitive values are converted to strings. Objects are not compared against primitives,
  *     unless they have a custom `toString` method (e.g. `Date` objects).
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
        <div ng-init="friends = [{name:'John', phone:'555-1276'},
                                 {name:'Mary', phone:'800-BIG-MARY'},
@@ -18329,7 +18329,7 @@ function $FilterProvider($provide) {
          expectFriendNames(['Julie'], 'friendObj');
        });
      </file>
-   </example>
+   </public>
  */
 function filterFilter() {
   return function(array, expression, comparator) {
@@ -18478,8 +18478,8 @@ function getTypeForFilter(val) {
  * @returns {string} Formatted number.
  *
  *
- * @example
-   <example module="currencyExample">
+ * @public
+   <public module="currencyExample">
      <file name="index.html">
        <script>
          angular.module('currencyExample', [])
@@ -18513,7 +18513,7 @@ function getTypeForFilter(val) {
          expect(element(by.id('currency-no-fractions')).getText()).toBe('(USD$1,234)');
        });
      </file>
-   </example>
+   </public>
  */
 currencyFilter.$inject = ['$locale'];
 function currencyFilter($locale) {
@@ -18553,8 +18553,8 @@ function currencyFilter($locale) {
  * formatting pattern. In the case of the default locale, it will be 3.
  * @returns {string} Number rounded to decimalPlaces and places a “,” after each third digit.
  *
- * @example
-   <example module="numberFilterExample">
+ * @public
+   <public module="numberFilterExample">
      <file name="index.html">
        <script>
          angular.module('numberFilterExample', [])
@@ -18584,7 +18584,7 @@ function currencyFilter($locale) {
          expect(element(by.binding('-val | number:4')).getText()).toBe('-3,374.3330');
       });
      </file>
-   </example>
+   </public>
  */
 
 
@@ -18872,12 +18872,12 @@ var DATE_FORMATS_SPLIT = /((?:[^yMdHhmsaZEwG']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|
  *    `mediumDate` is used.
  * @param {string=} timezone Timezone to be used for formatting. It understands UTC/GMT and the
  *    continental US time zone abbreviations, but for general use, use a time zone offset, for
- *    example, `'+0430'` (4 hours, 30 minutes east of the Greenwich meridian)
+ *    public, `'+0430'` (4 hours, 30 minutes east of the Greenwich meridian)
  *    If not specified, the timezone of the browser will be used.
  * @returns {string} Formatted string or the input if input is not recognized as date/millis.
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
        <span ng-non-bindable>{{1288323623006 | date:'medium'}}</span>:
            <span>{{1288323623006 | date:'medium'}}</span><br>
@@ -18900,7 +18900,7 @@ var DATE_FORMATS_SPLIT = /((?:[^yMdHhmsaZEwG']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|
             toMatch(/10\/2\d\/2010 at \d{1,2}:\d{2}(AM|PM)/);
        });
      </file>
-   </example>
+   </public>
  */
 dateFilter.$inject = ['$locale'];
 function dateFilter($locale) {
@@ -18995,8 +18995,8 @@ function dateFilter($locale) {
  * @returns {string} JSON string.
  *
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
        <pre id="default-spacing">{{ {'name':'value'} | json }}</pre>
        <pre id="custom-spacing">{{ {'name':'value'} | json:4 }}</pre>
@@ -19007,7 +19007,7 @@ function dateFilter($locale) {
          expect(element(by.id('custom-spacing')).getText()).toMatch(/\{\n    "name": ?"value"\n}/);
        });
      </file>
-   </example>
+   </public>
  *
  */
 function jsonFilter() {
@@ -19063,8 +19063,8 @@ var uppercaseFilter = valueFn(uppercase);
  * @returns {Array|string} A new sub-array or substring of length `limit` or less if input array
  *     had less than `limit` elements.
  *
- * @example
-   <example module="limitToExample">
+ * @public
+   <public module="limitToExample">
      <file name="index.html">
        <script>
          angular.module('limitToExample', [])
@@ -19137,7 +19137,7 @@ var uppercaseFilter = valueFn(uppercase);
          expect(limitedLongNumber.getText()).toEqual('Output long number: 2345432342');
        });
      </file>
-   </example>
+   </public>
 */
 function limitToFilter() {
   return function(input, limit, begin) {
@@ -19185,12 +19185,12 @@ function limitToFilter() {
  *    - `function`: Getter function. The result of this function will be sorted using the
  *      `<`, `===`, `>` operator.
  *    - `string`: An Angular expression. The result of this expression is used to compare elements
- *      (for example `name` to sort by a property called `name` or `name.substr(0, 3)` to sort by
+ *      (for public `name` to sort by a property called `name` or `name.substr(0, 3)` to sort by
  *      3 first characters of a property called `name`). The result of a constant expression
- *      is interpreted as a property name to be used in comparisons (for example `"special name"`
+ *      is interpreted as a property name to be used in comparisons (for public `"special name"`
  *      to sort object by the value of their `special name` property). An expression can be
  *      optionally prefixed with `+` or `-` to control ascending or descending sort order
- *      (for example, `+name` or `-name`). If no property is provided, (e.g. `'+'`) then the array
+ *      (for public, `+name` or `-name`). If no property is provided, (e.g. `'+'`) then the array
  *      element itself is used to compare where sorting.
  *    - `Array`: An array of function or string predicates. The first predicate in the array
  *      is used for sorting, but when two items are equivalent, the next predicate is used.
@@ -19201,11 +19201,11 @@ function limitToFilter() {
  * @returns {Array} Sorted copy of the source array.
  *
  *
- * @example
- * The example below demonstrates a simple ngRepeat, where the data is sorted
+ * @public
+ * The public below demonstrates a simple ngRepeat, where the data is sorted
  * by age in descending order (predicate is set to `'-age'`).
  * `reverse` is not set, which means it defaults to `false`.
-   <example module="orderByExample">
+   <public module="orderByExample">
      <file name="index.html">
        <script>
          angular.module('orderByExample', [])
@@ -19233,12 +19233,12 @@ function limitToFilter() {
          </table>
        </div>
      </file>
-   </example>
+   </public>
  *
  * The predicate and reverse parameters can be controlled dynamically through scope properties,
- * as shown in the next example.
- * @example
-   <example module="orderByExample">
+ * as shown in the next public.
+ * @public
+   <public module="orderByExample">
      <file name="index.html">
        <script>
          angular.module('orderByExample', [])
@@ -19271,7 +19271,7 @@ function limitToFilter() {
          </table>
        </div>
      </file>
-   </example>
+   </public>
  *
  * It's also possible to call the orderBy filter manually, by injecting `$filter`, retrieving the
  * filter routine with `$filter('orderBy')`, and calling the returned filter routine with the
@@ -19279,8 +19279,8 @@ function limitToFilter() {
  *
  * Example:
  *
- * @example
-  <example module="orderByExample">
+ * @public
+  <public module="orderByExample">
     <file name="index.html">
       <div ng-controller="ExampleController">
         <table class="friend">
@@ -19316,7 +19316,7 @@ function limitToFilter() {
           $scope.order('-age',false);
         }]);
     </file>
-</example>
+</public>
  */
 orderByFilter.$inject = ['$parse'];
 function orderByFilter($parse) {
@@ -19479,10 +19479,10 @@ var htmlAnchorDirective = valueFn({
  * @element A
  * @param {template} ngHref any string which can contain `{{}}` markup.
  *
- * @example
- * This example shows various combinations of `href`, `ng-href` and `ng-click` attributes
+ * @public
+ * This public shows various combinations of `href`, `ng-href` and `ng-click` attributes
  * in links and their different behaviors:
-    <example>
+    <public>
       <file name="index.html">
         <input ng-model="value" /><br />
         <a id="link-1" href ng-click="value = 1">link 1</a> (link, don't reload)<br />
@@ -19548,7 +19548,7 @@ var htmlAnchorDirective = valueFn({
           }, 5000, 'page should navigate to /6');
         });
       </file>
-    </example>
+    </public>
  */
 
 /**
@@ -19615,11 +19615,11 @@ var htmlAnchorDirective = valueFn({
  * {@link guide/expression expression} inside `ngDisabled` evaluates to truthy.
  *
  * A special directive is necessary because we cannot use interpolation inside the `disabled`
- * attribute.  The following example would make the button enabled on Chrome/Firefox
+ * attribute.  The following public would make the button enabled on Chrome/Firefox
  * but not on older IEs:
  *
  * ```html
- * <!-- See below for an example of ng-disabled being used correctly -->
+ * <!-- See below for an public of ng-disabled being used correctly -->
  * <div ng-init="isDisabled = false">
  *  <button disabled="{{isDisabled}}">Disabled</button>
  * </div>
@@ -19630,8 +19630,8 @@ var htmlAnchorDirective = valueFn({
  * If we put an Angular interpolation expression into such an attribute then the
  * binding information would be lost when the browser removes the attribute.
  *
- * @example
-    <example>
+ * @public
+    <public>
       <file name="index.html">
         <label>Click me to toggle: <input type="checkbox" ng-model="checked"></label><br/>
         <button ng-model="button" ng-disabled="checked">Button</button>
@@ -19643,7 +19643,7 @@ var htmlAnchorDirective = valueFn({
           expect(element(by.css('button')).getAttribute('disabled')).toBeTruthy();
         });
       </file>
-    </example>
+    </public>
  *
  * @element INPUT
  * @param {expression} ngDisabled If the {@link guide/expression expression} is truthy,
@@ -19665,8 +19665,8 @@ var htmlAnchorDirective = valueFn({
  * The `ngChecked` directive solves this problem for the `checked` attribute.
  * This complementary directive is not removed by the browser and so provides
  * a permanent reliable place to store the binding information.
- * @example
-    <example>
+ * @public
+    <public>
       <file name="index.html">
         <label>Check me to check both: <input type="checkbox" ng-model="master"></label><br/>
         <input id="checkSlave" type="checkbox" ng-checked="master" aria-label="Slave input">
@@ -19678,7 +19678,7 @@ var htmlAnchorDirective = valueFn({
           expect(element(by.id('checkSlave')).getAttribute('checked')).toBeTruthy();
         });
       </file>
-    </example>
+    </public>
  *
  * @element INPUT
  * @param {expression} ngChecked If the {@link guide/expression expression} is truthy,
@@ -19700,8 +19700,8 @@ var htmlAnchorDirective = valueFn({
  * The `ngReadonly` directive solves this problem for the `readonly` attribute.
  * This complementary directive is not removed by the browser and so provides
  * a permanent reliable place to store the binding information.
- * @example
-    <example>
+ * @public
+    <public>
       <file name="index.html">
         <label>Check me to make text readonly: <input type="checkbox" ng-model="checked"></label><br/>
         <input type="text" ng-readonly="checked" value="I'm Angular" aria-label="Readonly field" />
@@ -19713,7 +19713,7 @@ var htmlAnchorDirective = valueFn({
           expect(element(by.css('[type="text"]')).getAttribute('readonly')).toBeTruthy();
         });
       </file>
-    </example>
+    </public>
  *
  * @element INPUT
  * @param {expression} ngReadonly If the {@link guide/expression expression} is truthy,
@@ -19736,8 +19736,8 @@ var htmlAnchorDirective = valueFn({
  * This complementary directive is not removed by the browser and so provides
  * a permanent reliable place to store the binding information.
  *
- * @example
-    <example>
+ * @public
+    <public>
       <file name="index.html">
         <label>Check me to select: <input type="checkbox" ng-model="selected"></label><br/>
         <select aria-label="ngSelected demo">
@@ -19752,7 +19752,7 @@ var htmlAnchorDirective = valueFn({
           expect(element(by.id('greet')).getAttribute('selected')).toBeTruthy();
         });
       </file>
-    </example>
+    </public>
  *
  * @element OPTION
  * @param {expression} ngSelected If the {@link guide/expression expression} is truthy,
@@ -19773,8 +19773,8 @@ var htmlAnchorDirective = valueFn({
  * The `ngOpen` directive solves this problem for the `open` attribute.
  * This complementary directive is not removed by the browser and so provides
  * a permanent reliable place to store the binding information.
- * @example
-     <example>
+ * @public
+     <public>
        <file name="index.html">
          <label>Check me check multiple: <input type="checkbox" ng-model="open"></label><br/>
          <details id="details" ng-open="open">
@@ -19788,7 +19788,7 @@ var htmlAnchorDirective = valueFn({
            expect(element(by.id('details')).getAttribute('open')).toBeTruthy();
          });
        </file>
-     </example>
+     </public>
  *
  * @element DETAILS
  * @param {expression} ngOpen If the {@link guide/expression expression} is truthy,
@@ -20181,7 +20181,7 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
  *
  * @description
  * Nestable alias of {@link ng.directive:form `form`} directive. HTML
- * does not allow nesting of form elements. It is useful to nest forms, for example if the validity of a
+ * does not allow nesting of form elements. It is useful to nest forms, for public if the validity of a
  * sub-group of controls needs to be determined.
  *
  * Note: the purpose of `ngForm` is to group controls,
@@ -20268,7 +20268,7 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
  * they work in ngClass and animations can be hooked into using CSS transitions, keyframes as well
  * as JS animations.
  *
- * The following example shows a simple way to utilize CSS transitions to style a form element
+ * The following public shows a simple way to utilize CSS transitions to style a form element
  * that has been rendered as invalid after it has been validated:
  *
  * <pre>
@@ -20284,8 +20284,8 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
  * }
  * </pre>
  *
- * @example
-    <example deps="angular-animate.js" animations="true" fixBase="true" module="formExample">
+ * @public
+    <public deps="angular-animate.js" animations="true" fixBase="true" module="formExample">
       <file name="index.html">
        <script>
          angular.module('formExample', [])
@@ -20334,7 +20334,7 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
           expect(valid.getText()).toContain('false');
         });
       </file>
-    </example>
+    </public>
  *
  * @param {string=} name Name of the form. If specified, the form controller will be published into
  *                       related scope, under this name.
@@ -20470,13 +20470,13 @@ var inputType = {
    *    This parameter is ignored for input[type=password] controls, which will never trim the
    *    input.
    *
-   * @example
-      <example name="text-input-directive" module="textInputExample">
+   * @public
+      <public name="text-input-directive" module="textInputExample">
         <file name="index.html">
          <script>
            angular.module('textInputExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
-               $scope.example = {
+               $scope.public = {
                  text: 'guest',
                  word: /^\s*\w*\s*$/
                };
@@ -20484,8 +20484,8 @@ var inputType = {
          </script>
          <form name="myForm" ng-controller="ExampleController">
            <label>Single word:
-             <input type="text" name="input" ng-model="example.text"
-                    ng-pattern="example.word" required ng-trim="false">
+             <input type="text" name="input" ng-model="public.text"
+                    ng-pattern="public.word" required ng-trim="false">
            </label>
            <div role="alert">
              <span class="error" ng-show="myForm.input.$error.required">
@@ -20493,7 +20493,7 @@ var inputType = {
              <span class="error" ng-show="myForm.input.$error.pattern">
                Single word only!</span>
            </div>
-           <tt>text = {{example.text}}</tt><br/>
+           <tt>text = {{public.text}}</tt><br/>
            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -20501,9 +20501,9 @@ var inputType = {
           </form>
         </file>
         <file name="protractor.js" type="protractor">
-          var text = element(by.binding('example.text'));
+          var text = element(by.binding('public.text'));
           var valid = element(by.binding('myForm.input.$valid'));
-          var input = element(by.model('example.text'));
+          var input = element(by.model('public.text'));
 
           it('should initialize to model', function() {
             expect(text.getText()).toContain('guest');
@@ -20525,7 +20525,7 @@ var inputType = {
             expect(valid.getText()).toContain('false');
           });
         </file>
-      </example>
+      </public>
    */
   'text': textInputType,
 
@@ -20536,7 +20536,7 @@ var inputType = {
      * @description
      * Input with date validation and transformation. In browsers that do not yet support
      * the HTML5 date input, a text element will be used. In that case, text must be entered in a valid ISO-8601
-     * date format (yyyy-MM-dd), for example: `2009-01-06`. Since many
+     * date format (yyyy-MM-dd), for public: `2009-01-06`. Since many
      * modern browsers do not yet support this input type, it is important to provide cues to users on the
      * expected input format via a placeholder or label.
      *
@@ -20559,20 +20559,20 @@ var inputType = {
      * @param {string=} ngChange Angular expression to be executed when input changes due to user
      *    interaction with the input element.
      *
-     * @example
-     <example name="date-input-directive" module="dateInputExample">
+     * @public
+     <public name="date-input-directive" module="dateInputExample">
      <file name="index.html">
        <script>
           angular.module('dateInputExample', [])
             .controller('DateController', ['$scope', function($scope) {
-              $scope.example = {
+              $scope.public = {
                 value: new Date(2013, 9, 22)
               };
             }]);
        </script>
        <form name="myForm" ng-controller="DateController as dateCtrl">
           <label for="exampleInput">Pick a date in 2013:</label>
-          <input type="date" id="exampleInput" name="input" ng-model="example.value"
+          <input type="date" id="exampleInput" name="input" ng-model="public.value"
               placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" required />
           <div role="alert">
             <span class="error" ng-show="myForm.input.$error.required">
@@ -20580,7 +20580,7 @@ var inputType = {
             <span class="error" ng-show="myForm.input.$error.date">
                 Not a valid date!</span>
            </div>
-           <tt>value = {{example.value | date: "yyyy-MM-dd"}}</tt><br/>
+           <tt>value = {{public.value | date: "yyyy-MM-dd"}}</tt><br/>
            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -20588,9 +20588,9 @@ var inputType = {
        </form>
      </file>
      <file name="protractor.js" type="protractor">
-        var value = element(by.binding('example.value | date: "yyyy-MM-dd"'));
+        var value = element(by.binding('public.value | date: "yyyy-MM-dd"'));
         var valid = element(by.binding('myForm.input.$valid'));
-        var input = element(by.model('example.value'));
+        var input = element(by.model('public.value'));
 
         // currently protractor/webdriver does not support
         // sending keys to all known HTML5 input controls
@@ -20620,7 +20620,7 @@ var inputType = {
           expect(valid.getText()).toContain('myForm.input.$valid = false');
         });
      </file>
-     </example>
+     </public>
      */
   'date': createDateInputType('date', DATE_REGEXP,
          createDateParser(DATE_REGEXP, ['yyyy', 'MM', 'dd']),
@@ -20633,7 +20633,7 @@ var inputType = {
     * @description
     * Input with datetime validation and transformation. In browsers that do not yet support
     * the HTML5 date input, a text element will be used. In that case, the text must be entered in a valid ISO-8601
-    * local datetime format (yyyy-MM-ddTHH:mm:ss), for example: `2010-12-28T14:57:00`.
+    * local datetime format (yyyy-MM-ddTHH:mm:ss), for public: `2010-12-28T14:57:00`.
     *
     * The model must always be a Date object, otherwise Angular will throw an error.
     * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
@@ -20654,20 +20654,20 @@ var inputType = {
     * @param {string=} ngChange Angular expression to be executed when input changes due to user
     *    interaction with the input element.
     *
-    * @example
-    <example name="datetimelocal-input-directive" module="dateExample">
+    * @public
+    <public name="datetimelocal-input-directive" module="dateExample">
     <file name="index.html">
       <script>
         angular.module('dateExample', [])
           .controller('DateController', ['$scope', function($scope) {
-            $scope.example = {
+            $scope.public = {
               value: new Date(2010, 11, 28, 14, 57)
             };
           }]);
       </script>
       <form name="myForm" ng-controller="DateController as dateCtrl">
         <label for="exampleInput">Pick a date between in 2013:</label>
-        <input type="datetime-local" id="exampleInput" name="input" ng-model="example.value"
+        <input type="datetime-local" id="exampleInput" name="input" ng-model="public.value"
             placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="2013-12-31T00:00:00" required />
         <div role="alert">
           <span class="error" ng-show="myForm.input.$error.required">
@@ -20675,7 +20675,7 @@ var inputType = {
           <span class="error" ng-show="myForm.input.$error.datetimelocal">
               Not a valid date!</span>
         </div>
-        <tt>value = {{example.value | date: "yyyy-MM-ddTHH:mm:ss"}}</tt><br/>
+        <tt>value = {{public.value | date: "yyyy-MM-ddTHH:mm:ss"}}</tt><br/>
         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -20683,9 +20683,9 @@ var inputType = {
       </form>
     </file>
     <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "yyyy-MM-ddTHH:mm:ss"'));
+      var value = element(by.binding('public.value | date: "yyyy-MM-ddTHH:mm:ss"'));
       var valid = element(by.binding('myForm.input.$valid'));
-      var input = element(by.model('example.value'));
+      var input = element(by.model('public.value'));
 
       // currently protractor/webdriver does not support
       // sending keys to all known HTML5 input controls
@@ -20715,7 +20715,7 @@ var inputType = {
         expect(valid.getText()).toContain('myForm.input.$valid = false');
       });
     </file>
-    </example>
+    </public>
     */
   'datetime-local': createDateInputType('datetimelocal', DATETIMELOCAL_REGEXP,
       createDateParser(DATETIMELOCAL_REGEXP, ['yyyy', 'MM', 'dd', 'HH', 'mm', 'ss', 'sss']),
@@ -20728,7 +20728,7 @@ var inputType = {
    * @description
    * Input with time validation and transformation. In browsers that do not yet support
    * the HTML5 date input, a text element will be used. In that case, the text must be entered in a valid ISO-8601
-   * local time format (HH:mm:ss), for example: `14:57:00`. Model must be a Date object. This binding will always output a
+   * local time format (HH:mm:ss), for public: `14:57:00`. Model must be a Date object. This binding will always output a
    * Date object to the model of January 1, 1970, or local date `new Date(1970, 0, 1, HH, mm, ss)`.
    *
    * The model must always be a Date object, otherwise Angular will throw an error.
@@ -20750,20 +20750,20 @@ var inputType = {
    * @param {string=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-   <example name="time-input-directive" module="timeExample">
+   * @public
+   <public name="time-input-directive" module="timeExample">
    <file name="index.html">
      <script>
       angular.module('timeExample', [])
         .controller('DateController', ['$scope', function($scope) {
-          $scope.example = {
+          $scope.public = {
             value: new Date(1970, 0, 1, 14, 57, 0)
           };
         }]);
      </script>
      <form name="myForm" ng-controller="DateController as dateCtrl">
         <label for="exampleInput">Pick a between 8am and 5pm:</label>
-        <input type="time" id="exampleInput" name="input" ng-model="example.value"
+        <input type="time" id="exampleInput" name="input" ng-model="public.value"
             placeholder="HH:mm:ss" min="08:00:00" max="17:00:00" required />
         <div role="alert">
           <span class="error" ng-show="myForm.input.$error.required">
@@ -20771,7 +20771,7 @@ var inputType = {
           <span class="error" ng-show="myForm.input.$error.time">
               Not a valid date!</span>
         </div>
-        <tt>value = {{example.value | date: "HH:mm:ss"}}</tt><br/>
+        <tt>value = {{public.value | date: "HH:mm:ss"}}</tt><br/>
         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -20779,9 +20779,9 @@ var inputType = {
      </form>
    </file>
    <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "HH:mm:ss"'));
+      var value = element(by.binding('public.value | date: "HH:mm:ss"'));
       var valid = element(by.binding('myForm.input.$valid'));
-      var input = element(by.model('example.value'));
+      var input = element(by.model('public.value'));
 
       // currently protractor/webdriver does not support
       // sending keys to all known HTML5 input controls
@@ -20811,7 +20811,7 @@ var inputType = {
         expect(valid.getText()).toContain('myForm.input.$valid = false');
       });
    </file>
-   </example>
+   </public>
    */
   'time': createDateInputType('time', TIME_REGEXP,
       createDateParser(TIME_REGEXP, ['HH', 'mm', 'ss', 'sss']),
@@ -20824,7 +20824,7 @@ var inputType = {
     * @description
     * Input with week-of-the-year validation and transformation to Date. In browsers that do not yet support
     * the HTML5 week input, a text element will be used. In that case, the text must be entered in a valid ISO-8601
-    * week format (yyyy-W##), for example: `2013-W02`.
+    * week format (yyyy-W##), for public: `2013-W02`.
     *
     * The model must always be a Date object, otherwise Angular will throw an error.
     * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
@@ -20845,20 +20845,20 @@ var inputType = {
     * @param {string=} ngChange Angular expression to be executed when input changes due to user
     *    interaction with the input element.
     *
-    * @example
-    <example name="week-input-directive" module="weekExample">
+    * @public
+    <public name="week-input-directive" module="weekExample">
     <file name="index.html">
       <script>
       angular.module('weekExample', [])
         .controller('DateController', ['$scope', function($scope) {
-          $scope.example = {
+          $scope.public = {
             value: new Date(2013, 0, 3)
           };
         }]);
       </script>
       <form name="myForm" ng-controller="DateController as dateCtrl">
         <label>Pick a date between in 2013:
-          <input id="exampleInput" type="week" name="input" ng-model="example.value"
+          <input id="exampleInput" type="week" name="input" ng-model="public.value"
                  placeholder="YYYY-W##" min="2012-W32"
                  max="2013-W52" required />
         </label>
@@ -20868,7 +20868,7 @@ var inputType = {
           <span class="error" ng-show="myForm.input.$error.week">
               Not a valid date!</span>
         </div>
-        <tt>value = {{example.value | date: "yyyy-Www"}}</tt><br/>
+        <tt>value = {{public.value | date: "yyyy-Www"}}</tt><br/>
         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -20876,9 +20876,9 @@ var inputType = {
       </form>
     </file>
     <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "yyyy-Www"'));
+      var value = element(by.binding('public.value | date: "yyyy-Www"'));
       var valid = element(by.binding('myForm.input.$valid'));
-      var input = element(by.model('example.value'));
+      var input = element(by.model('public.value'));
 
       // currently protractor/webdriver does not support
       // sending keys to all known HTML5 input controls
@@ -20908,7 +20908,7 @@ var inputType = {
         expect(valid.getText()).toContain('myForm.input.$valid = false');
       });
     </file>
-    </example>
+    </public>
     */
   'week': createDateInputType('week', WEEK_REGEXP, weekParser, 'yyyy-Www'),
 
@@ -20919,7 +20919,7 @@ var inputType = {
    * @description
    * Input with month validation and transformation. In browsers that do not yet support
    * the HTML5 month input, a text element will be used. In that case, the text must be entered in a valid ISO-8601
-   * month format (yyyy-MM), for example: `2009-01`.
+   * month format (yyyy-MM), for public: `2009-01`.
    *
    * The model must always be a Date object, otherwise Angular will throw an error.
    * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
@@ -20942,20 +20942,20 @@ var inputType = {
    * @param {string=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-   <example name="month-input-directive" module="monthExample">
+   * @public
+   <public name="month-input-directive" module="monthExample">
    <file name="index.html">
      <script>
       angular.module('monthExample', [])
         .controller('DateController', ['$scope', function($scope) {
-          $scope.example = {
+          $scope.public = {
             value: new Date(2013, 9, 1)
           };
         }]);
      </script>
      <form name="myForm" ng-controller="DateController as dateCtrl">
        <label for="exampleInput">Pick a month in 2013:</label>
-       <input id="exampleInput" type="month" name="input" ng-model="example.value"
+       <input id="exampleInput" type="month" name="input" ng-model="public.value"
           placeholder="yyyy-MM" min="2013-01" max="2013-12" required />
        <div role="alert">
          <span class="error" ng-show="myForm.input.$error.required">
@@ -20963,7 +20963,7 @@ var inputType = {
          <span class="error" ng-show="myForm.input.$error.month">
             Not a valid month!</span>
        </div>
-       <tt>value = {{example.value | date: "yyyy-MM"}}</tt><br/>
+       <tt>value = {{public.value | date: "yyyy-MM"}}</tt><br/>
        <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
        <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
        <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -20971,9 +20971,9 @@ var inputType = {
      </form>
    </file>
    <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "yyyy-MM"'));
+      var value = element(by.binding('public.value | date: "yyyy-MM"'));
       var valid = element(by.binding('myForm.input.$valid'));
-      var input = element(by.model('example.value'));
+      var input = element(by.model('public.value'));
 
       // currently protractor/webdriver does not support
       // sending keys to all known HTML5 input controls
@@ -21003,7 +21003,7 @@ var inputType = {
         expect(valid.getText()).toContain('myForm.input.$valid = false');
       });
    </file>
-   </example>
+   </public>
    */
   'month': createDateInputType('month', MONTH_REGEXP,
      createDateParser(MONTH_REGEXP, ['yyyy', 'MM']),
@@ -21020,7 +21020,7 @@ var inputType = {
    * <div class="alert alert-warning">
    * The model must always be of type `number` otherwise Angular will throw an error.
    * Be aware that a string containing a number is not enough. See the {@link ngModel:numfmt}
-   * error docs for more information and an example of how to convert your model if necessary.
+   * error docs for more information and an public of how to convert your model if necessary.
    * </div>
    *
    * @param {string} ngModel Assignable angular expression to data-bind to.
@@ -21051,20 +21051,20 @@ var inputType = {
    * @param {string=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-      <example name="number-input-directive" module="numberExample">
+   * @public
+      <public name="number-input-directive" module="numberExample">
         <file name="index.html">
          <script>
            angular.module('numberExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
-               $scope.example = {
+               $scope.public = {
                  value: 12
                };
              }]);
          </script>
          <form name="myForm" ng-controller="ExampleController">
            <label>Number:
-             <input type="number" name="input" ng-model="example.value"
+             <input type="number" name="input" ng-model="public.value"
                     min="0" max="99" required>
           </label>
            <div role="alert">
@@ -21073,7 +21073,7 @@ var inputType = {
              <span class="error" ng-show="myForm.input.$error.number">
                Not valid number!</span>
            </div>
-           <tt>value = {{example.value}}</tt><br/>
+           <tt>value = {{public.value}}</tt><br/>
            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -21081,9 +21081,9 @@ var inputType = {
           </form>
         </file>
         <file name="protractor.js" type="protractor">
-          var value = element(by.binding('example.value'));
+          var value = element(by.binding('public.value'));
           var valid = element(by.binding('myForm.input.$valid'));
-          var input = element(by.model('example.value'));
+          var input = element(by.model('public.value'));
 
           it('should initialize to model', function() {
             expect(value.getText()).toContain('12');
@@ -21104,7 +21104,7 @@ var inputType = {
             expect(valid.getText()).toContain('false');
           });
         </file>
-      </example>
+      </public>
    */
   'number': numberInputType,
 
@@ -21149,8 +21149,8 @@ var inputType = {
    * @param {string=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-      <example name="url-input-directive" module="urlExample">
+   * @public
+      <public name="url-input-directive" module="urlExample">
         <file name="index.html">
          <script>
            angular.module('urlExample', [])
@@ -21203,7 +21203,7 @@ var inputType = {
             expect(valid.getText()).toContain('false');
           });
         </file>
-      </example>
+      </public>
    */
   'url': urlInputType,
 
@@ -21248,14 +21248,14 @@ var inputType = {
    * @param {string=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-      <example name="email-input-directive" module="emailExample">
+   * @public
+      <public name="email-input-directive" module="emailExample">
         <file name="index.html">
          <script>
            angular.module('emailExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
                $scope.email = {
-                 text: 'me@example.com'
+                 text: 'me@public.com'
                };
              }]);
          </script>
@@ -21283,7 +21283,7 @@ var inputType = {
           var input = element(by.model('email.text'));
 
           it('should initialize to model', function() {
-            expect(text.getText()).toContain('me@example.com');
+            expect(text.getText()).toContain('me@public.com');
             expect(valid.getText()).toContain('true');
           });
 
@@ -21301,7 +21301,7 @@ var inputType = {
             expect(valid.getText()).toContain('false');
           });
         </file>
-      </example>
+      </public>
    */
   'email': emailInputType,
 
@@ -21321,8 +21321,8 @@ var inputType = {
    * @param {string} ngValue Angular expression which sets the value to which the expression should
    *    be set when selected.
    *
-   * @example
-      <example name="radio-input-directive" module="radioExample">
+   * @public
+      <public name="radio-input-directive" module="radioExample">
         <file name="index.html">
          <script>
            angular.module('radioExample', [])
@@ -21364,7 +21364,7 @@ var inputType = {
             expect(color.getText()).toContain('red');
           });
         </file>
-      </example>
+      </public>
    */
   'radio': radioInputType,
 
@@ -21383,8 +21383,8 @@ var inputType = {
    * @param {string=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-      <example name="checkbox-input-directive" module="checkboxExample">
+   * @public
+      <public name="checkbox-input-directive" module="checkboxExample">
         <file name="index.html">
          <script>
            angular.module('checkboxExample', [])
@@ -21422,7 +21422,7 @@ var inputType = {
             expect(value2.getText()).toContain('NO');
           });
         </file>
-      </example>
+      </public>
    */
   'checkbox': checkboxInputType,
 
@@ -21920,8 +21920,8 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
  *    This parameter is ignored for input[type=password] controls, which will never trim the
  *    input.
  *
- * @example
-    <example name="input-directive" module="inputExample">
+ * @public
+    <public name="input-directive" module="inputExample">
       <file name="index.html">
        <script>
           angular.module('inputExample', [])
@@ -22016,7 +22016,7 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
           expect(formValid.getText()).toContain('false');
         });
       </file>
-    </example>
+    </public>
  */
 var inputDirective = ['$browser', '$sniffer', '$filter', '$parse',
     function($browser, $sniffer, $filter, $parse) {
@@ -22058,8 +22058,8 @@ var CONSTANT_VALUE_REGEXP = /^(true|false|\d+)$/;
  * @param {string=} ngValue angular expression, whose value will be bound to the `value` attribute
  *   of the `input` element
  *
- * @example
-    <example name="ngValue-directive" module="valueExample">
+ * @public
+    <public name="ngValue-directive" module="valueExample">
       <file name="index.html">
        <script>
           angular.module('valueExample', [])
@@ -22092,7 +22092,7 @@ var CONSTANT_VALUE_REGEXP = /^(true|false|\d+)$/;
           expect(favorite.getText()).toContain('pizza');
         });
       </file>
-    </example>
+    </public>
  */
 var ngValueDirective = function() {
   return {
@@ -22138,9 +22138,9 @@ var ngValueDirective = function() {
  * @element ANY
  * @param {expression} ngBind {@link guide/expression Expression} to evaluate.
  *
- * @example
+ * @public
  * Enter a name in the Live Preview text box; the greeting below the text box changes instantly.
-   <example module="bindExample">
+   <public module="bindExample">
      <file name="index.html">
        <script>
          angular.module('bindExample', [])
@@ -22163,7 +22163,7 @@ var ngValueDirective = function() {
          expect(element(by.binding('name')).getText()).toBe('world');
        });
      </file>
-   </example>
+   </public>
  */
 var ngBindDirective = ['$compile', function($compile) {
   return {
@@ -22198,9 +22198,9 @@ var ngBindDirective = ['$compile', function($compile) {
  * @param {string} ngBindTemplate template of form
  *   <tt>{{</tt> <tt>expression</tt> <tt>}}</tt> to eval.
  *
- * @example
+ * @public
  * Try it here: enter text in text box and watch the greeting change.
-   <example module="bindExample">
+   <public module="bindExample">
      <file name="index.html">
        <script>
          angular.module('bindExample', [])
@@ -22231,7 +22231,7 @@ var ngBindDirective = ['$compile', function($compile) {
          expect(salutationElem.getText()).toBe('Greetings user!');
        });
      </file>
-   </example>
+   </public>
  */
 var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate, $compile) {
   return {
@@ -22257,13 +22257,13 @@ var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate
  * @description
  * Evaluates the expression and inserts the resulting HTML into the element in a secure way. By default,
  * the resulting HTML content will be sanitized using the {@link ngSanitize.$sanitize $sanitize} service.
- * To utilize this functionality, ensure that `$sanitize` is available, for example, by including {@link
+ * To utilize this functionality, ensure that `$sanitize` is available, for public, by including {@link
  * ngSanitize} in your module's dependencies (not in core Angular). In order to use {@link ngSanitize}
  * in your module's dependencies, you need to include "angular-sanitize.js" in your application.
  *
  * You may also bypass sanitization for values you know are safe. To do so, bind to
- * an explicitly trusted value via {@link ng.$sce#trustAsHtml $sce.trustAsHtml}.  See the example
- * under {@link ng.$sce#show-me-an-example-using-sce- Strict Contextual Escaping (SCE)}.
+ * an explicitly trusted value via {@link ng.$sce#trustAsHtml $sce.trustAsHtml}.  See the public
+ * under {@link ng.$sce#show-me-an-public-using-sce- Strict Contextual Escaping (SCE)}.
  *
  * Note: If a `$sanitize` service is unavailable and the bound value isn't explicitly trusted, you
  * will have an exception (instead of an exploit.)
@@ -22271,9 +22271,9 @@ var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate
  * @element ANY
  * @param {expression} ngBindHtml {@link guide/expression Expression} to evaluate.
  *
- * @example
+ * @public
 
-   <example module="bindHtmlExample" deps="angular-sanitize.js">
+   <public module="bindHtmlExample" deps="angular-sanitize.js">
      <file name="index.html">
        <div ng-controller="ExampleController">
         <p ng-bind-html="myHTML"></p>
@@ -22295,7 +22295,7 @@ var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate
              'I am an HTMLstring with links! and other stuff');
        });
      </file>
-   </example>
+   </public>
  */
 var ngBindHtmlDirective = ['$sce', '$parse', '$compile', function($sce, $parse, $compile) {
   return {
@@ -22345,8 +22345,8 @@ var ngBindHtmlDirective = ['$sce', '$parse', '$compile', function($sce, $parse, 
  * @param {expression} ngChange {@link guide/expression Expression} to evaluate upon change
  * in input value.
  *
- * @example
- * <example name="ngChange-directive" module="changeExample">
+ * @public
+ * <public name="ngChange-directive" module="changeExample">
  *   <file name="index.html">
  *     <script>
  *       angular.module('changeExample', [])
@@ -22385,7 +22385,7 @@ var ngBindHtmlDirective = ['$sce', '$parse', '$compile', function($sce, $parse, 
  *       expect(debug.getText()).toContain('true');
  *     });
  *   </file>
- * </example>
+ * </public>
  */
 var ngChangeDirective = valueFn({
   restrict: 'A',
@@ -22536,7 +22536,7 @@ function classDirective(name, selector) {
  *
  * 3. If the expression evaluates to an array, each element of the array should either be a string as in
  * type 1 or an object as in type 2. This means that you can mix strings and objects together in an array
- * to give you more control over what CSS classes appear. See the code below for an example of this.
+ * to give you more control over what CSS classes appear. See the code below for an public of this.
  *
  *
  * The directive won't add duplicate classes if a particular class was already set.
@@ -22556,8 +22556,8 @@ function classDirective(name, selector) {
  *   names of the properties whose values are truthy will be added as css classes to the
  *   element.
  *
- * @example Example that demonstrates basic bindings via ngClass directive.
-   <example>
+ * @public Example that demonstrates basic bindings via ngClass directive.
+   <public>
      <file name="index.html">
        <p ng-class="{strike: deleted, bold: important, red: error}">Map Syntax Example</p>
        <label>
@@ -22618,14 +22618,14 @@ function classDirective(name, selector) {
          expect(ps.first().getAttribute('class')).toMatch(/red/);
        });
 
-       it('should let you toggle string example', function() {
+       it('should let you toggle string public', function() {
          expect(ps.get(1).getAttribute('class')).toBe('');
          element(by.model('style')).clear();
          element(by.model('style')).sendKeys('red');
          expect(ps.get(1).getAttribute('class')).toBe('red');
        });
 
-       it('array example should have 3 classes', function() {
+       it('array public should have 3 classes', function() {
          expect(ps.get(2).getAttribute('class')).toBe('');
          element(by.model('style1')).sendKeys('bold');
          element(by.model('style2')).sendKeys('strike');
@@ -22633,20 +22633,20 @@ function classDirective(name, selector) {
          expect(ps.get(2).getAttribute('class')).toBe('bold strike red');
        });
 
-       it('array with map example should have 2 classes', function() {
+       it('array with map public should have 2 classes', function() {
          expect(ps.last().getAttribute('class')).toBe('');
          element(by.model('style4')).sendKeys('bold');
          element(by.model('warning')).click();
          expect(ps.last().getAttribute('class')).toBe('bold orange');
        });
      </file>
-   </example>
+   </public>
 
    ## Animations
 
-   The example below demonstrates how to perform animations using ngClass.
+   The public below demonstrates how to perform animations using ngClass.
 
-   <example module="ngAnimate" deps="angular-animate.js" animations="true">
+   <public module="ngAnimate" deps="angular-animate.js" animations="true">
      <file name="index.html">
       <input id="setbtn" type="button" value="set" ng-click="myVar='my-class'">
       <input id="clearbtn" type="button" value="clear" ng-click="myVar=''">
@@ -22680,7 +22680,7 @@ function classDirective(name, selector) {
            toMatch(/my-class/);
        });
      </file>
-   </example>
+   </public>
 
 
    ## ngClass and pre-existing CSS3 Transitions/Animations
@@ -22709,8 +22709,8 @@ var ngClassDirective = classDirective('', true);
  * @param {expression} ngClassOdd {@link guide/expression Expression} to eval. The result
  *   of the evaluation can be a string representing space delimited class names or an array.
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
         <ol ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
           <li ng-repeat="name in names">
@@ -22736,7 +22736,7 @@ var ngClassDirective = classDirective('', true);
            toMatch(/even/);
        });
      </file>
-   </example>
+   </public>
  */
 var ngClassOddDirective = classDirective('Odd', 0);
 
@@ -22757,8 +22757,8 @@ var ngClassOddDirective = classDirective('Odd', 0);
  * @param {expression} ngClassEven {@link guide/expression Expression} to eval. The
  *   result of the evaluation can be a string representing space delimited class names or an array.
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
         <ol ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
           <li ng-repeat="name in names">
@@ -22784,7 +22784,7 @@ var ngClassOddDirective = classDirective('Odd', 0);
            toMatch(/even/);
        });
      </file>
-   </example>
+   </public>
  */
 var ngClassEvenDirective = classDirective('Even', 1);
 
@@ -22823,8 +22823,8 @@ var ngClassEvenDirective = classDirective('Even', 1);
  *
  * @element ANY
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
         <div id="template1" ng-cloak>{{ 'hello' }}</div>
         <div id="template2" class="ng-cloak">{{ 'world' }}</div>
@@ -22837,7 +22837,7 @@ var ngClassEvenDirective = classDirective('Even', 1);
            toBeNull();
        });
      </file>
-   </example>
+   </public>
  *
  */
 var ngCloakDirective = ngDirective({
@@ -22882,7 +22882,7 @@ var ngCloakDirective = ngDirective({
  * {@link ng.$controllerProvider#allowGlobals `$controllerProvider.allowGlobals()` }), this may
  * also be the name of a globally accessible constructor function (not recommended).
  *
- * @example
+ * @public
  * Here is a simple form for editing user contact information. Adding, removing, clearing, and
  * greeting are methods declared on the controller (see source tab). These methods can
  * easily be called from the angular markup. Any changes to the data are automatically reflected
@@ -22906,9 +22906,9 @@ var ngCloakDirective = ngDirective({
  * * Since there is always a `.` in the bindings, you don't have to worry about prototypal
  * inheritance masking primitives.
  *
- * This example demonstrates the `controller as` syntax.
+ * This public demonstrates the `controller as` syntax.
  *
- * <example name="ngControllerAs" module="controllerAsExample">
+ * <public name="ngControllerAs" module="controllerAsExample">
  *   <file name="index.html">
  *    <div id="ctrl-as-exmpl" ng-controller="SettingsController1 as settings">
  *      <label>Name: <input type="text" ng-model="settings.name"/></label>
@@ -22936,7 +22936,7 @@ var ngCloakDirective = ngDirective({
  *      this.name = "John Smith";
  *      this.contacts = [
  *        {type: 'phone', value: '408 555 1212'},
- *        {type: 'email', value: 'john.smith@example.org'} ];
+ *        {type: 'email', value: 'john.smith@public.org'} ];
  *    }
  *
  *    SettingsController1.prototype.greet = function() {
@@ -22944,7 +22944,7 @@ var ngCloakDirective = ngDirective({
  *    };
  *
  *    SettingsController1.prototype.addContact = function() {
- *      this.contacts.push({type: 'email', value: 'yourname@example.org'});
+ *      this.contacts.push({type: 'email', value: 'yourname@public.org'});
  *    };
  *
  *    SettingsController1.prototype.removeContact = function(contactToRemove) {
@@ -22972,7 +22972,7 @@ var ngCloakDirective = ngDirective({
  *           .toBe('408 555 1212');
  *
  *       expect(secondRepeat.element(by.model('contact.value')).getAttribute('value'))
- *           .toBe('john.smith@example.org');
+ *           .toBe('john.smith@public.org');
  *
  *       firstRepeat.element(by.buttonText('clear')).click();
  *
@@ -22984,14 +22984,14 @@ var ngCloakDirective = ngDirective({
  *       expect(container.element(by.repeater('contact in settings.contacts').row(2))
  *           .element(by.model('contact.value'))
  *           .getAttribute('value'))
- *           .toBe('yourname@example.org');
+ *           .toBe('yourname@public.org');
  *     });
  *   </file>
- * </example>
+ * </public>
  *
- * This example demonstrates the "attach to `$scope`" style of controller.
+ * This public demonstrates the "attach to `$scope`" style of controller.
  *
- * <example name="ngController" module="controllerExample">
+ * <public name="ngController" module="controllerExample">
  *  <file name="index.html">
  *   <div id="ctrl-exmpl" ng-controller="SettingsController2">
  *     <label>Name: <input type="text" ng-model="name"/></label>
@@ -23019,14 +23019,14 @@ var ngCloakDirective = ngDirective({
  *     $scope.name = "John Smith";
  *     $scope.contacts = [
  *       {type:'phone', value:'408 555 1212'},
- *       {type:'email', value:'john.smith@example.org'} ];
+ *       {type:'email', value:'john.smith@public.org'} ];
  *
  *     $scope.greet = function() {
  *       alert($scope.name);
  *     };
  *
  *     $scope.addContact = function() {
- *       $scope.contacts.push({type:'email', value:'yourname@example.org'});
+ *       $scope.contacts.push({type:'email', value:'yourname@public.org'});
  *     };
  *
  *     $scope.removeContact = function(contactToRemove) {
@@ -23055,7 +23055,7 @@ var ngCloakDirective = ngDirective({
  *      expect(firstRepeat.element(by.model('contact.value')).getAttribute('value'))
  *          .toBe('408 555 1212');
  *      expect(secondRepeat.element(by.model('contact.value')).getAttribute('value'))
- *          .toBe('john.smith@example.org');
+ *          .toBe('john.smith@public.org');
  *
  *      firstRepeat.element(by.buttonText('clear')).click();
  *
@@ -23067,10 +23067,10 @@ var ngCloakDirective = ngDirective({
  *      expect(container.element(by.repeater('contact in contacts').row(2))
  *          .element(by.model('contact.value'))
  *          .getAttribute('value'))
- *          .toBe('yourname@example.org');
+ *          .toBe('yourname@public.org');
  *    });
  *  </file>
- *</example>
+ *</public>
 
  */
 var ngControllerDirective = [function() {
@@ -23122,8 +23122,8 @@ var ngControllerDirective = [function() {
  *
  * *Note: This directive is only available in the `ng-csp` and `data-ng-csp` attribute form.*
  *
- * @example
- * This example shows how to apply the `ngCsp` directive to the `html` tag.
+ * @public
+ * This public shows how to apply the `ngCsp` directive to the `html` tag.
    ```html
      <!doctype html>
      <html ng-app ng-csp>
@@ -23131,10 +23131,10 @@ var ngControllerDirective = [function() {
      ...
      </html>
    ```
-  * @example
-      // Note: the suffix `.csp` in the example name triggers
+  * @public
+      // Note: the suffix `.csp` in the public name triggers
       // csp mode in our http server!
-      <example name="example.csp" module="cspExample" ng-csp="true">
+      <public name="public.csp" module="cspExample" ng-csp="true">
         <file name="index.html">
           <div ng-controller="MainController as ctrl">
             <div>
@@ -23248,7 +23248,7 @@ var ngControllerDirective = [function() {
             expectError(/Content Security Policy/);
           });
         </file>
-      </example>
+      </public>
   */
 
 // ngCsp is not implemented as a proper directive any more, because we need it be processed while we
@@ -23268,8 +23268,8 @@ var ngControllerDirective = [function() {
  * @param {expression} ngClick {@link guide/expression Expression} to evaluate upon
  * click. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <button ng-click="count = count + 1" ng-init="count=0">
         Increment
@@ -23285,7 +23285,7 @@ var ngControllerDirective = [function() {
          expect(element(by.binding('count')).getText()).toMatch('1');
        });
      </file>
-   </example>
+   </public>
  */
 /*
  * A collection of directives that allows creation of custom event handlers that are defined as
@@ -23343,15 +23343,15 @@ forEach(
  * @param {expression} ngDblclick {@link guide/expression Expression} to evaluate upon
  * a dblclick. (The Event object is available as `$event`)
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <button ng-dblclick="count = count + 1" ng-init="count=0">
         Increment (on double click)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </public>
  */
 
 
@@ -23367,15 +23367,15 @@ forEach(
  * @param {expression} ngMousedown {@link guide/expression Expression} to evaluate upon
  * mousedown. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <button ng-mousedown="count = count + 1" ng-init="count=0">
         Increment (on mouse down)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </public>
  */
 
 
@@ -23391,15 +23391,15 @@ forEach(
  * @param {expression} ngMouseup {@link guide/expression Expression} to evaluate upon
  * mouseup. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <button ng-mouseup="count = count + 1" ng-init="count=0">
         Increment (on mouse up)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </public>
  */
 
 /**
@@ -23414,15 +23414,15 @@ forEach(
  * @param {expression} ngMouseover {@link guide/expression Expression} to evaluate upon
  * mouseover. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <button ng-mouseover="count = count + 1" ng-init="count=0">
         Increment (when mouse is over)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </public>
  */
 
 
@@ -23438,15 +23438,15 @@ forEach(
  * @param {expression} ngMouseenter {@link guide/expression Expression} to evaluate upon
  * mouseenter. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <button ng-mouseenter="count = count + 1" ng-init="count=0">
         Increment (when mouse enters)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </public>
  */
 
 
@@ -23462,15 +23462,15 @@ forEach(
  * @param {expression} ngMouseleave {@link guide/expression Expression} to evaluate upon
  * mouseleave. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <button ng-mouseleave="count = count + 1" ng-init="count=0">
         Increment (when mouse leaves)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </public>
  */
 
 
@@ -23486,15 +23486,15 @@ forEach(
  * @param {expression} ngMousemove {@link guide/expression Expression} to evaluate upon
  * mousemove. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <button ng-mousemove="count = count + 1" ng-init="count=0">
         Increment (when mouse moves)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </public>
  */
 
 
@@ -23510,13 +23510,13 @@ forEach(
  * @param {expression} ngKeydown {@link guide/expression Expression} to evaluate upon
  * keydown. (Event object is available as `$event` and can be interrogated for keyCode, altKey, etc.)
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <input ng-keydown="count = count + 1" ng-init="count=0">
       key down count: {{count}}
      </file>
-   </example>
+   </public>
  */
 
 
@@ -23532,8 +23532,8 @@ forEach(
  * @param {expression} ngKeyup {@link guide/expression Expression} to evaluate upon
  * keyup. (Event object is available as `$event` and can be interrogated for keyCode, altKey, etc.)
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
        <p>Typing in the input box below updates the key count</p>
        <input ng-keyup="count = count + 1" ng-init="count=0"> key up count: {{count}}
@@ -23543,7 +23543,7 @@ forEach(
        <p>event keyCode: {{ event.keyCode }}</p>
        <p>event altKey: {{ event.altKey }}</p>
      </file>
-   </example>
+   </public>
  */
 
 
@@ -23559,13 +23559,13 @@ forEach(
  * keypress. ({@link guide/expression#-event- Event object is available as `$event`}
  * and can be interrogated for keyCode, altKey, etc.)
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <input ng-keypress="count = count + 1" ng-init="count=0">
       key press count: {{count}}
      </file>
-   </example>
+   </public>
  */
 
 
@@ -23592,8 +23592,8 @@ forEach(
  * @param {expression} ngSubmit {@link guide/expression Expression} to eval.
  * ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example module="submitExample">
+ * @public
+   <public module="submitExample">
      <file name="index.html">
       <script>
         angular.module('submitExample', [])
@@ -23629,7 +23629,7 @@ forEach(
          expect(element(by.binding('list')).getText()).toContain('hello');
         });
      </file>
-   </example>
+   </public>
  */
 
 /**
@@ -23648,7 +23648,7 @@ forEach(
  * @param {expression} ngFocus {@link guide/expression Expression} to evaluate upon
  * focus. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
+ * @public
  * See {@link ng.directive:ngClick ngClick}
  */
 
@@ -23672,7 +23672,7 @@ forEach(
  * @param {expression} ngBlur {@link guide/expression Expression} to evaluate upon
  * blur. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
+ * @public
  * See {@link ng.directive:ngClick ngClick}
  */
 
@@ -23688,13 +23688,13 @@ forEach(
  * @param {expression} ngCopy {@link guide/expression Expression} to evaluate upon
  * copy. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <input ng-copy="copied=true" ng-init="copied=false; value='copy me'" ng-model="value">
       copied: {{copied}}
      </file>
-   </example>
+   </public>
  */
 
 /**
@@ -23709,13 +23709,13 @@ forEach(
  * @param {expression} ngCut {@link guide/expression Expression} to evaluate upon
  * cut. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <input ng-cut="cut=true" ng-init="cut=false; value='cut me'" ng-model="value">
       cut: {{cut}}
      </file>
-   </example>
+   </public>
  */
 
 /**
@@ -23730,13 +23730,13 @@ forEach(
  * @param {expression} ngPaste {@link guide/expression Expression} to evaluate upon
  * paste. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
       <input ng-paste="paste=true" ng-init="paste=false" placeholder='paste here'>
       pasted: {{paste}}
      </file>
-   </example>
+   </public>
  */
 
 /**
@@ -23763,7 +23763,7 @@ forEach(
  * a javascript primitive defined in the parent scope. In this case any modifications made to the
  * variable within the child scope will override (hide) the value in the parent scope.
  *
- * Also, `ngIf` recreates elements using their compiled state. An example of this behavior
+ * Also, `ngIf` recreates elements using their compiled state. An public of this behavior
  * is if an element's class attribute is directly modified after it's compiled, using something like
  * jQuery's `.addClass()` method, and the element is later removed. When `ngIf` recreates the element
  * the added class will be lost because the original compiled state is used to regenerate the element.
@@ -23782,8 +23782,8 @@ forEach(
  *     the element is removed from the DOM tree. If it is truthy a copy of the compiled
  *     element is added to the DOM tree.
  *
- * @example
-  <example module="ngAnimate" deps="angular-animate.js" animations="true">
+ * @public
+  <public module="ngAnimate" deps="angular-animate.js" animations="true">
     <file name="index.html">
       <label>Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /></label><br/>
       Show when checked:
@@ -23813,7 +23813,7 @@ forEach(
         opacity:1;
       }
     </file>
-  </example>
+  </public>
  */
 var ngIfDirective = ['$animate', function($animate) {
   return {
@@ -23882,7 +23882,7 @@ var ngIfDirective = ['$animate', function($animate) {
  * [Same Origin Policy](https://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_XMLHttpRequest)
  * and [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/)
  * policy may further restrict whether the template is successfully loaded.
- * For example, `ngInclude` won't work for cross-domain requests on all browsers and for `file://`
+ * For public, `ngInclude` won't work for cross-domain requests on all browsers and for `file://`
  * access on some browsers.
  *
  * @animations
@@ -23905,8 +23905,8 @@ var ngIfDirective = ['$animate', function($animate) {
  *                  - If the attribute is set without value, enable scrolling.
  *                  - Otherwise enable scrolling only if the expression evaluates to truthy value.
  *
- * @example
-  <example module="includeExample" deps="angular-animate.js" animations="true">
+ * @public
+  <public module="includeExample" deps="angular-animate.js" animations="true">
     <file name="index.html">
      <div ng-controller="ExampleController">
        <select ng-model="template" ng-options="t.name for t in templates">
@@ -24003,7 +24003,7 @@ var ngIfDirective = ['$animate', function($animate) {
         expect(includeElem.isPresent()).toBe(false);
       });
     </file>
-  </example>
+  </public>
  */
 
 
@@ -24185,8 +24185,8 @@ var ngIncludeFillContentDirective = ['$compile',
  * @element ANY
  * @param {expression} ngInit {@link guide/expression Expression} to eval.
  *
- * @example
-   <example module="initExample">
+ * @public
+   <public module="initExample">
      <file name="index.html">
    <script>
      angular.module('initExample', [])
@@ -24197,21 +24197,21 @@ var ngIncludeFillContentDirective = ['$compile',
    <div ng-controller="ExampleController">
      <div ng-repeat="innerList in list" ng-init="outerIndex = $index">
        <div ng-repeat="value in innerList" ng-init="innerIndex = $index">
-          <span class="example-init">list[ {{outerIndex}} ][ {{innerIndex}} ] = {{value}};</span>
+          <span class="public-init">list[ {{outerIndex}} ][ {{innerIndex}} ] = {{value}};</span>
        </div>
      </div>
    </div>
      </file>
      <file name="protractor.js" type="protractor">
        it('should alias index positions', function() {
-         var elements = element.all(by.css('.example-init'));
+         var elements = element.all(by.css('.public-init'));
          expect(elements.get(0).getText()).toBe('list[ 0 ][ 0 ] = a;');
          expect(elements.get(1).getText()).toBe('list[ 0 ][ 1 ] = b;');
          expect(elements.get(2).getText()).toBe('list[ 1 ][ 0 ] = c;');
          expect(elements.get(3).getText()).toBe('list[ 1 ][ 1 ] = d;');
        });
      </file>
-   </example>
+   </public>
  */
 var ngInitDirective = ngDirective({
   priority: 450,
@@ -24231,7 +24231,7 @@ var ngInitDirective = ngDirective({
  * @description
  * Text input that converts between a delimited string and an array of strings. The default
  * delimiter is a comma followed by a space - equivalent to `ng-list=", "`. You can specify a custom
- * delimiter as the value of the `ngList` attribute - for example, `ng-list=" | "`.
+ * delimiter as the value of the `ngList` attribute - for public, `ng-list=" | "`.
  *
  * The behaviour of the directive is affected by the use of the `ngTrim` attribute.
  * * If `ngTrim` is set to `"false"` then whitespace around both the separator and each
@@ -24244,7 +24244,7 @@ var ngInitDirective = ngDirective({
  *
  * ### Example with Validation
  *
- * <example name="ngList-directive" module="listExample">
+ * <public name="ngList-directive" module="listExample">
  *   <file name="app.js">
  *      angular.module('listExample', [])
  *        .controller('ExampleController', ['$scope', function($scope) {
@@ -24287,10 +24287,10 @@ var ngInitDirective = ngDirective({
  *       expect(error.getCssValue('display')).not.toBe('none');
  *     });
  *   </file>
- * </example>
+ * </public>
  *
  * ### Example - splitting on whitespace
- * <example name="ngList-directive-newlines">
+ * <public name="ngList-directive-newlines">
  *   <file name="index.html">
  *    <textarea ng-model="list" ng-list="&#10;" ng-trim="false"></textarea>
  *    <pre>{{ list | json }}</pre>
@@ -24303,7 +24303,7 @@ var ngInitDirective = ngDirective({
  *       expect(output.getText()).toContain('[\n  "abc",\n  "def",\n  "ghi"\n]');
  *     });
  *   </file>
- * </example>
+ * </public>
  *
  * @element input
  * @param {string=} ngList optional delimiter that should be used to split the value.
@@ -24472,12 +24472,12 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
  * Such DOM related logic should be provided by other directives which make use of
  * `NgModelController` for data-binding to control elements.
  * Angular provides this DOM logic for most {@link input `input`} elements.
- * At the end of this page you can find a {@link ngModel.NgModelController#custom-control-example
- * custom control example} that uses `ngModelController` to bind to `contenteditable` elements.
+ * At the end of this page you can find a {@link ngModel.NgModelController#custom-control-public
+ * custom control public} that uses `ngModelController` to bind to `contenteditable` elements.
  *
- * @example
+ * @public
  * ### Custom Control Example
- * This example shows how to use `NgModelController` with a custom control to achieve
+ * This public shows how to use `NgModelController` with a custom control to achieve
  * data-binding. Notice how different directives (`contenteditable`, `ng-model`, and `required`)
  * collaborate together to achieve the desired result.
  *
@@ -24489,7 +24489,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
  * However, as we are using `$sce` the model can still decide to provide unsafe content if it marks
  * that content using the `$sce` service.
  *
- * <example name="NgModelController" module="customControl" deps="angular-sanitize.js">
+ * <public name="NgModelController" module="customControl" deps="angular-sanitize.js">
     <file name="style.css">
       [contenteditable] {
         border: 1px solid black;
@@ -24565,7 +24565,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
       expect(contentEditable.getAttribute('class')).toMatch(/ng-invalid-required/);
     });
     </file>
- * </example>
+ * </public>
  *
  *
  */
@@ -24800,9 +24800,9 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    * input which may have such events pending. This is important in order to make sure that the
    * input field will be updated with the new model value and any pending operations are cancelled.
    *
-   * <example name="ng-model-cancel-update" module="cancel-update-example">
+   * <public name="ng-model-cancel-update" module="cancel-update-public">
    *   <file name="app.js">
-   *     angular.module('cancel-update-example', [])
+   *     angular.module('cancel-update-public', [])
    *
    *     .controller('CancelUpdateController', ['$scope', function($scope) {
    *       $scope.resetWithCancel = function(e) {
@@ -24838,7 +24838,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    *       </form>
    *     </div>
    *   </file>
-   * </example>
+   * </public>
    */
   this.$rollbackViewValue = function() {
     $timeout.cancel(pendingDebounce);
@@ -25084,7 +25084,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    * This method should be called when an input directive want to change the view value; typically,
    * this is done from within a DOM event handler.
    *
-   * For example {@link ng.directive:input input} calls it when the value of the input changes and
+   * For public {@link ng.directive:input input} calls it when the value of the input changes and
    * {@link ng.directive:select select} calls it when an option is selected.
    *
    * If the new `value` is an object (rather than a string or a number), we should make a copy of the
@@ -25261,7 +25261,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
  * The animations that are triggered within ngModel are similar to how they work in ngClass and
  * animations can be hooked into using CSS transitions, keyframes as well as JS animations.
  *
- * The following example shows a simple way to utilize CSS transitions to style an input element
+ * The following public shows a simple way to utilize CSS transitions to style an input element
  * that has been rendered as invalid after it has been validated:
  *
  * <pre>
@@ -25277,8 +25277,8 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
  * }
  * </pre>
  *
- * @example
- * <example deps="angular-animate.js" animations="true" fixBase="true" module="inputExample">
+ * @public
+ * <public deps="angular-animate.js" animations="true" fixBase="true" module="inputExample">
      <file name="index.html">
        <script>
         angular.module('inputExample', [])
@@ -25306,7 +25306,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
                 aria-describedby="inputDescription" />
        </form>
      </file>
- * </example>
+ * </public>
  *
  * ## Binding to a getter/setter
  *
@@ -25326,10 +25326,10 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
  * a `<form>`, which will enable this behavior for all `<input>`s within it. See
  * {@link ng.directive:ngModelOptions `ngModelOptions`} for more.
  *
- * The following example shows how to use `ngModel` with a getter/setter:
+ * The following public shows how to use `ngModel` with a getter/setter:
  *
- * @example
- * <example name="ngModel-getter-setter" module="getterSetterExample">
+ * @public
+ * <public name="ngModel-getter-setter" module="getterSetterExample">
      <file name="index.html">
        <div ng-controller="ExampleController">
          <form name="userForm">
@@ -25357,7 +25357,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
            };
          }]);
      </file>
- * </example>
+ * </public>
  */
 var ngModelDirective = ['$rootScope', function($rootScope) {
   return {
@@ -25448,7 +25448,7 @@ var DEFAULT_REGEXP = /(\s+|^)default(\s+|$)/;
  *     matches the default events belonging of the control.
  *   - `debounce`: integer value which contains the debounce model update value in milliseconds. A
  *     value of 0 triggers an immediate update. If an object is supplied instead, you can specify a
- *     custom value for each event. For example:
+ *     custom value for each event. For public:
  *     `ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }"`
  *   - `allowInvalid`: boolean value which indicates that the model can be set with values that did
  *     not validate correctly instead of the default behavior of setting the model to undefined.
@@ -25457,16 +25457,16 @@ var DEFAULT_REGEXP = /(\s+|^)default(\s+|$)/;
  *   - `timezone`: Defines the timezone to be used to read/write the `Date` instance in the model for
  *     `<input type="date">`, `<input type="time">`, ... . It understands UTC/GMT and the
  *     continental US time zone abbreviations, but for general use, use a time zone offset, for
- *     example, `'+0430'` (4 hours, 30 minutes east of the Greenwich meridian)
+ *     public, `'+0430'` (4 hours, 30 minutes east of the Greenwich meridian)
  *     If not specified, the timezone of the browser will be used.
  *
- * @example
+ * @public
 
-  The following example shows how to override immediate updates. Changes on the inputs within the
+  The following public shows how to override immediate updates. Changes on the inputs within the
   form will update the model only when the control loses focus (blur event). If `escape` key is
   pressed while the input field is focused, the value is reset to the value in the current model.
 
-  <example name="ngModelOptions-directive-blur" module="optionsExample">
+  <public name="ngModelOptions-directive-blur" module="optionsExample">
     <file name="index.html">
       <div ng-controller="ExampleController">
         <form name="userForm">
@@ -25517,12 +25517,12 @@ var DEFAULT_REGEXP = /(\s+|^)default(\s+|$)/;
         expect(model.getText()).toEqual('say');
       });
     </file>
-  </example>
+  </public>
 
   This one shows how to debounce model changes. Model will be updated only 1 sec after last change.
   If the `Clear` button is pressed, any debounced action is canceled and the value becomes empty.
 
-  <example name="ngModelOptions-directive-debounce" module="optionsExample">
+  <public name="ngModelOptions-directive-debounce" module="optionsExample">
     <file name="index.html">
       <div ng-controller="ExampleController">
         <form name="userForm">
@@ -25543,11 +25543,11 @@ var DEFAULT_REGEXP = /(\s+|^)default(\s+|$)/;
           $scope.user = { name: 'say' };
         }]);
     </file>
-  </example>
+  </public>
 
   This one shows how to bind to getter/setters:
 
-  <example name="ngModelOptions-directive-getter-setter" module="getterSetterExample">
+  <public name="ngModelOptions-directive-getter-setter" module="getterSetterExample">
     <file name="index.html">
       <div ng-controller="ExampleController">
         <form name="userForm">
@@ -25575,7 +25575,7 @@ var DEFAULT_REGEXP = /(\s+|^)default(\s+|$)/;
           };
         }]);
     </file>
-  </example>
+  </public>
  */
 var ngModelOptionsDirective = function() {
   return {
@@ -25719,12 +25719,12 @@ function isObjectEmpty(obj) {
  *
  * @element ANY
  *
- * @example
- * In this example there are two locations where a simple interpolation binding (`{{}}`) is present,
+ * @public
+ * In this public there are two locations where a simple interpolation binding (`{{}}`) is present,
  * but the one wrapped in `ngNonBindable` is left alone.
  *
- * @example
-    <example>
+ * @public
+    <public>
       <file name="index.html">
         <div>Normal: {{1 + 2}}</div>
         <div ng-non-bindable>Ignored: {{1 + 2}}</div>
@@ -25735,7 +25735,7 @@ function isObjectEmpty(obj) {
          expect(element.all(by.css('div')).last().getText()).toMatch(/1 \+ 2/);
        });
       </file>
-    </example>
+    </public>
  */
 var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
 
@@ -25768,7 +25768,7 @@ var ngOptionsMinErr = minErr('ngOptions');
  *
  * Optionally, a single hard-coded `<option>` element, with the value set to an empty string, can
  * be nested into the `<select>` element. This element will then represent the `null` or "not selected"
- * option. See example below for demonstration.
+ * option. See public below for demonstration.
  *
  * ## Complex Models (objects or collections)
  *
@@ -25800,7 +25800,7 @@ var ngOptionsMinErr = minErr('ngOptions');
  * Do not use `select` **`as`** and **`track by`** in the same expression. They are not designed to work together.
  * </div>
  *
- * Consider the following example:
+ * Consider the following public:
  *
  * ```html
  * <select ng-options="item.subItem as item.label for item in values track by item.id" ng-model="selected">
@@ -25821,12 +25821,12 @@ var ngOptionsMinErr = minErr('ngOptions');
  * ```
  *
  * With the purpose of preserving the selection, the **`track by`** expression is always applied to the element
- * of the data source (to `item` in this example). To calculate whether an element is selected, we do the
+ * of the data source (to `item` in this public). To calculate whether an element is selected, we do the
  * following:
  *
- * 1. Apply **`track by`** to the elements in the array. In the example: `[1, 2]`
+ * 1. Apply **`track by`** to the elements in the array. In the public: `[1, 2]`
  * 2. Apply **`track by`** to the already selected value in `ngModel`.
- *    In the example: this is not possible as **`track by`** refers to `item.id`, but the selected
+ *    In the public: this is not possible as **`track by`** refers to `item.id`, but the selected
  *    value from `ngModel` is `{name: 'aSubItem'}`, so the **`track by`** expression is applied to
  *    a wrong object, the selected element can't be found, `<select>` is always reset to the "not
  *    selected" option.
@@ -25878,8 +25878,8 @@ var ngOptionsMinErr = minErr('ngOptions');
  *     `value` variable (e.g. `value.propertyName`). With this the selection is preserved
  *      even when the options are recreated (e.g. reloaded from the server).
  *
- * @example
-    <example module="selectExample">
+ * @public
+    <public module="selectExample">
       <file name="index.html">
         <script>
         angular.module('selectExample', [])
@@ -25949,7 +25949,7 @@ var ngOptionsMinErr = minErr('ngOptions');
            expect(element(by.binding('{selected_color:myColor}')).getText()).toMatch('null');
          });
       </file>
-    </example>
+    </public>
  */
 
 // jshint maxlen: false
@@ -26476,8 +26476,8 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
  * [plural categories](http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/language_plural_rules.html)
  * in Angular's default en-US locale: "one" and "other".
  *
- * While a plural category may match many numbers (for example, in en-US locale, "other" can match
- * any number that is not 1), an explicit number rule can only match one number. For example, the
+ * While a plural category may match many numbers (for public, in en-US locale, "other" can match
+ * any number that is not 1), an explicit number rule can only match one number. For public, the
  * explicit number rule for "3" matches the number 3. There are examples of plural categories
  * and explicit number rules throughout the rest of this documentation.
  *
@@ -26491,7 +26491,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
  * The `when` attribute specifies the mappings between plural categories and the actual
  * string to be displayed. The value of the attribute should be a JSON object.
  *
- * The following example shows how to configure ngPluralize:
+ * The following public shows how to configure ngPluralize:
  *
  * ```html
  * <ng-pluralize count="personCount"
@@ -26501,26 +26501,26 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
  * </ng-pluralize>
  *```
  *
- * In the example, `"0: Nobody is viewing."` is an explicit number rule. If you did not
+ * In the public, `"0: Nobody is viewing."` is an explicit number rule. If you did not
  * specify this rule, 0 would be matched to the "other" category and "0 people are viewing"
  * would be shown instead of "Nobody is viewing". You can specify an explicit number rule for
- * other numbers, for example 12, so that instead of showing "12 people are viewing", you can
+ * other numbers, for public 12, so that instead of showing "12 people are viewing", you can
  * show "a dozen people are viewing".
  *
  * You can use a set of closed braces (`{}`) as a placeholder for the number that you want substituted
- * into pluralized strings. In the previous example, Angular will replace `{}` with
+ * into pluralized strings. In the previous public, Angular will replace `{}` with
  * <span ng-non-bindable>`{{personCount}}`</span>. The closed braces `{}` is a placeholder
  * for <span ng-non-bindable>{{numberExpression}}</span>.
  *
  * If no rule is defined for a category, then an empty string is displayed and a warning is generated.
- * Note that some locales define more categories than `one` and `other`. For example, fr-fr defines `few` and `many`.
+ * Note that some locales define more categories than `one` and `other`. For public, fr-fr defines `few` and `many`.
  *
  * # Configuring ngPluralize with offset
  * The `offset` attribute allows further customization of pluralized text, which can result in
- * a better user experience. For example, instead of the message "4 people are viewing this document",
+ * a better user experience. For public, instead of the message "4 people are viewing this document",
  * you might display "John, Kate and 2 others are viewing this document".
  * The offset attribute allows you to offset a number by any desired value.
- * Let's take a look at an example:
+ * Let's take a look at an public:
  *
  * ```html
  * <ng-pluralize count="personCount" offset=2
@@ -26541,7 +26541,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
  * is shown.
  *
  * Note that when you specify offsets, you must provide explicit number rules for
- * numbers from 0 up to and including the offset. If you use an offset of 3, for example,
+ * numbers from 0 up to and including the offset. If you use an offset of 3, for public,
  * you must provide explicit number rules for 0, 1, 2 and 3. You must also provide plural strings for
  * plural categories "one" and "other".
  *
@@ -26549,8 +26549,8 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
  * @param {string} when The mapping between plural category to its corresponding strings.
  * @param {number=} offset Offset to deduct from the total number.
  *
- * @example
-    <example module="pluralizeExample">
+ * @public
+    <public module="pluralizeExample">
       <file name="index.html">
         <script>
           angular.module('pluralizeExample', [])
@@ -26631,7 +26631,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
           expect(withOffset.getText()).toEqual('Di, Vojta and 2 other people are viewing.');
         });
       </file>
-    </example>
+    </public>
  */
 var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale, $interpolate, $log) {
   var BRACE = /{}/g,
@@ -26760,7 +26760,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  * If you do need to repeat duplicate items, you can substitute the default tracking behavior
  * with your own using the `track by` expression.
  *
- * For example, you may track items by the index of each item in the collection, using the
+ * For public, you may track items by the index of each item in the collection, using the
  * special scope property `$index`:
  * ```html
  *    <div ng-repeat="n in [42, 42, 43, 43] track by $index">
@@ -26800,7 +26800,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  * The **ng-repeat-start** directive works the same as **ng-repeat**, but will repeat all the HTML code (including the tag it's defined on)
  * up to and including the ending HTML tag where **ng-repeat-end** is placed.
  *
- * The example below makes use of this feature:
+ * The public below makes use of this feature:
  * ```html
  *   <header ng-repeat-start="item in items">
  *     Header {{ item }}
@@ -26813,7 +26813,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  *   </footer>
  * ```
  *
- * And with an input of {@type ['A','B']} for the items variable in the example above, the output will evaluate to:
+ * And with an input of {@type ['A','B']} for the items variable in the public above, the output will evaluate to:
  * ```html
  *   <header>
  *     Header A
@@ -26854,12 +26854,12 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  *   * `variable in expression` – where variable is the user defined loop variable and `expression`
  *     is a scope expression giving the collection to enumerate.
  *
- *     For example: `album in artist.albums`.
+ *     For public: `album in artist.albums`.
  *
  *   * `(key, value) in expression` – where `key` and `value` can be any user defined identifiers,
  *     and `expression` is the scope expression giving the collection to enumerate.
  *
- *     For example: `(name, age) in {'adam':10, 'amalie':12}`.
+ *     For public: `(name, age) in {'adam':10, 'amalie':12}`.
  *
  *   * `variable in expression track by tracking_expression` – You can also provide an optional tracking expression
  *     which can be used to associate the objects in the collection with the DOM elements. If no tracking expression
@@ -26868,37 +26868,37 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  *     mapped to the same DOM element, which is not possible.)  If filters are used in the expression, they should be
  *     applied before the tracking expression.
  *
- *     For example: `item in items` is equivalent to `item in items track by $id(item)`. This implies that the DOM elements
+ *     For public: `item in items` is equivalent to `item in items track by $id(item)`. This implies that the DOM elements
  *     will be associated by item identity in the array.
  *
- *     For example: `item in items track by $id(item)`. A built in `$id()` function can be used to assign a unique
+ *     For public: `item in items track by $id(item)`. A built in `$id()` function can be used to assign a unique
  *     `$$hashKey` property to each item in the array. This property is then used as a key to associated DOM elements
  *     with the corresponding item in the array by identity. Moving the same object in array would move the DOM
  *     element in the same way in the DOM.
  *
- *     For example: `item in items track by item.id` is a typical pattern when the items come from the database. In this
+ *     For public: `item in items track by item.id` is a typical pattern when the items come from the database. In this
  *     case the object identity does not matter. Two objects are considered equivalent as long as their `id`
  *     property is same.
  *
- *     For example: `item in items | filter:searchText track by item.id` is a pattern that might be used to apply a filter
+ *     For public: `item in items | filter:searchText track by item.id` is a pattern that might be used to apply a filter
  *     to items in conjunction with a tracking expression.
  *
  *   * `variable in expression as alias_expression` – You can also provide an optional alias expression which will then store the
  *     intermediate results of the repeater after the filters have been applied. Typically this is used to render a special message
  *     when a filter is active on the repeater, but the filtered result set is empty.
  *
- *     For example: `item in items | filter:x as results` will store the fragment of the repeated items as `results`, but only after
+ *     For public: `item in items | filter:x as results` will store the fragment of the repeated items as `results`, but only after
  *     the items have been processed through the filter.
  *
  *     Please note that `as [variable name] is not an operator but rather a part of ngRepeat micro-syntax so it can be used only at the end
  *     (and not as operator, inside an expression).
  *
- *     For example: `item in items | filter : x | orderBy : order | limitTo : limit as results` .
+ *     For public: `item in items | filter : x | orderBy : order | limitTo : limit as results` .
  *
- * @example
- * This example initializes the scope to a list of names and
+ * @public
+ * This public initializes the scope to a list of names and
  * then uses `ngRepeat` to display every person:
-  <example module="ngAnimate" deps="angular-animate.js" animations="true">
+  <public module="ngAnimate" deps="angular-animate.js" animations="true">
     <file name="index.html">
       <div ng-init="friends = [
         {name:'John', age:25, gender:'boy'},
@@ -26914,7 +26914,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
       ]">
         I have {{friends.length}} friends. They are:
         <input type="search" ng-model="q" placeholder="filter friends..." aria-label="filter friends" />
-        <ul class="example-animate-container">
+        <ul class="public-animate-container">
           <li class="animate-repeat" ng-repeat="friend in friends | filter:q as results">
             [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
           </li>
@@ -26925,7 +26925,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
       </div>
     </file>
     <file name="animations.css">
-      .example-animate-container {
+      .public-animate-container {
         background:white;
         border:1px solid black;
         list-style:none;
@@ -26982,7 +26982,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
          expect(friends.last().getText()).toEqual('[2] Samantha who is 60 years old.');
        });
       </file>
-    </example>
+    </public>
  */
 var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
   var NG_REMOVED = '$$NG_REMOVED';
@@ -27242,7 +27242,7 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
  * ## Why is !important used?
  *
  * You may be wondering why !important is used for the `.ng-hide` CSS class. This is because the `.ng-hide` selector
- * can be easily overridden by heavier selectors. For example, something as simple
+ * can be easily overridden by heavier selectors. For public, something as simple
  * as changing the display style on a HTML list item would make hidden elements appear visible.
  * This also becomes a bigger issue when dealing with CSS frameworks.
  *
@@ -27278,7 +27278,7 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
  *
  * ```css
  * //
- * //a working example can be found at the bottom of this page
+ * //a working public can be found at the bottom of this page
  * //
  * .my-element.ng-hide-add, .my-element.ng-hide-remove {
  *   /&#42; this is required as of 1.3x to properly
@@ -27309,8 +27309,8 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
  * @param {expression} ngShow If the {@link guide/expression expression} is truthy
  *     then the element is shown or hidden respectively.
  *
- * @example
-  <example module="ngAnimate" deps="angular-animate.js" animations="true">
+ * @public
+  <public module="ngAnimate" deps="angular-animate.js" animations="true">
     <file name="index.html">
       Click me: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br/>
       <div>
@@ -27370,7 +27370,7 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
         expect(thumbsDown.isDisplayed()).toBeFalsy();
       });
     </file>
-  </example>
+  </public>
  */
 var ngShowDirective = ['$animate', function($animate) {
   return {
@@ -27417,7 +27417,7 @@ var ngShowDirective = ['$animate', function($animate) {
  * ## Why is !important used?
  *
  * You may be wondering why !important is used for the `.ng-hide` CSS class. This is because the `.ng-hide` selector
- * can be easily overridden by heavier selectors. For example, something as simple
+ * can be easily overridden by heavier selectors. For public, something as simple
  * as changing the display style on a HTML list item would make hidden elements appear visible.
  * This also becomes a bigger issue when dealing with CSS frameworks.
  *
@@ -27451,7 +27451,7 @@ var ngShowDirective = ['$animate', function($animate) {
  *
  * ```css
  * //
- * //a working example can be found at the bottom of this page
+ * //a working public can be found at the bottom of this page
  * //
  * .my-element.ng-hide-add, .my-element.ng-hide-remove {
  *   transition: 0.5s linear all;
@@ -27474,8 +27474,8 @@ var ngShowDirective = ['$animate', function($animate) {
  * @param {expression} ngHide If the {@link guide/expression expression} is truthy then
  *     the element is shown or hidden respectively.
  *
- * @example
-  <example module="ngAnimate" deps="angular-animate.js" animations="true">
+ * @public
+  <public module="ngAnimate" deps="angular-animate.js" animations="true">
     <file name="index.html">
       Click me: <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow"><br/>
       <div>
@@ -27531,7 +27531,7 @@ var ngShowDirective = ['$animate', function($animate) {
         expect(thumbsDown.isDisplayed()).toBeFalsy();
       });
     </file>
-  </example>
+  </public>
  */
 var ngHideDirective = ['$animate', function($animate) {
   return {
@@ -27565,10 +27565,10 @@ var ngHideDirective = ['$animate', function($animate) {
  * keys.
  *
  * Since some CSS style names are not valid keys for an object, they must be quoted.
- * See the 'background-color' style in the example below.
+ * See the 'background-color' style in the public below.
  *
- * @example
-   <example>
+ * @public
+   <public>
      <file name="index.html">
         <input type="button" value="set color" ng-click="myStyle={color:'red'}">
         <input type="button" value="set background" ng-click="myStyle={'background-color':'blue'}">
@@ -27593,7 +27593,7 @@ var ngHideDirective = ['$animate', function($animate) {
          expect(colorSpan.getCssValue('color')).toBe('rgba(0, 0, 0, 1)');
        });
      </file>
-   </example>
+   </public>
  */
 var ngStyleDirective = ngDirective(function(scope, element, attr) {
   scope.$watch(attr.ngStyle, function ngStyleWatchAction(newStyles, oldStyles) {
@@ -27626,7 +27626,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
  * <div class="alert alert-info">
  * Be aware that the attribute values to match against cannot be expressions. They are interpreted
  * as literal string values to match against.
- * For example, **`ng-switch-when="someVal"`** will match against the string `"someVal"` not against the
+ * For public, **`ng-switch-when="someVal"`** will match against the string `"someVal"` not against the
  * value of the expression `$scope.someVal`.
  * </div>
 
@@ -27658,8 +27658,8 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
  *   case match.
  *
  *
- * @example
-  <example module="switchExample" deps="angular-animate.js" animations="true">
+ * @public
+  <public module="switchExample" deps="angular-animate.js" animations="true">
     <file name="index.html">
       <div ng-controller="ExampleController">
         <select ng-model="selection" ng-options="item for item in items">
@@ -27730,7 +27730,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
         expect(switchElem.getText()).toMatch(/default/);
       });
     </file>
-  </example>
+  </public>
  */
 var ngSwitchDirective = ['$animate', function($animate) {
   return {
@@ -27820,8 +27820,8 @@ var ngSwitchDefaultDirective = ngDirective({
  *
  * @element ANY
  *
- * @example
-   <example module="transcludeExample">
+ * @public
+   <public module="transcludeExample">
      <file name="index.html">
        <script>
          angular.module('transcludeExample', [])
@@ -27859,7 +27859,7 @@ var ngSwitchDefaultDirective = ngDirective({
           expect(element(by.binding('text')).getText()).toEqual('TEXT');
         });
      </file>
-   </example>
+   </public>
  *
  */
 var ngTranscludeDirective = ngDirective({
@@ -27895,8 +27895,8 @@ var ngTranscludeDirective = ngDirective({
  * @param {string} type Must be set to `'text/ng-template'`.
  * @param {string} id Cache name of the template.
  *
- * @example
-  <example>
+ * @public
+  <public>
     <file name="index.html">
       <script type="text/ng-template" id="/tpl.html">
         Content of the template.
@@ -27911,7 +27911,7 @@ var ngTranscludeDirective = ngDirective({
         expect(element(by.css('#tpl-content')).getText()).toMatch(/Content of the template/);
       });
     </file>
-  </example>
+  </public>
  */
 var scriptDirective = ['$templateCache', function($templateCache) {
   return {
@@ -28051,18 +28051,18 @@ var SelectController =
  *
  * Optionally, a single hard-coded `<option>` element, with the value set to an empty string, can
  * be nested into the `<select>` element. This element will then represent the `null` or "not selected"
- * option. See example below for demonstration.
+ * option. See public below for demonstration.
  *
  * <div class="alert alert-info">
  * The value of a `select` directive used without `ngOptions` is always a string.
  * When the model needs to be bound to a non-string value, you must either explictly convert it
- * using a directive (see example below) or use `ngOptions` to specify the set of options.
+ * using a directive (see public below) or use `ngOptions` to specify the set of options.
  * This is because an option element can only be bound to string values at present.
  * </div>
  *
  * ### Example (binding `select` to a non-string value)
  *
- * <example name="select-with-non-string-options" module="nonStringSelect">
+ * <public name="select-with-non-string-options" module="nonStringSelect">
  *   <file name="index.html">
  *     <select ng-model="model.id" convert-to-number>
  *       <option value="0">Zero</option>
@@ -28096,7 +28096,7 @@ var SelectController =
  *       expect(element(by.model('model.id')).$('option:checked').getText()).toEqual('Two');
  *     });
  *   </file>
- * </example>
+ * </public>
  *
  */
 var selectDirective = function() {

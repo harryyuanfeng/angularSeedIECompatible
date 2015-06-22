@@ -11,7 +11,7 @@ var PORT = 8000;
 var app = express();
 app.use(compress());
 app.use(bodyParser());
-app.use('/',express.static(__dirname + '../../example'));
+app.use('/',express.static(__dirname + '../../public'));
 
 http.createServer(app).listen(PORT, function () {
     logger.log('Express server listening on port ' + PORT);
