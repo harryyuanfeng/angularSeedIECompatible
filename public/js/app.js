@@ -30,13 +30,7 @@ var app = angular.module('zhanguApp', ['ui.router', 'ui.load', 'zhanguApp.filter
                 //这里：就是说把dashboar－v1的html注入到app的ui－view里面
                 .state('app.home', {
                     url: '/home',
-                    templateUrl: 'js/app/home/home.html',
-                    resolve: {
-                        deps: ['uiLoad',
-                            function (uiLoad) {
-                                return uiLoad.load(['js/app/home/home.js']);
-                            }]
-                    }
+                    templateUrl: 'js/app/home/home.html'
                 })
         }
     ]
